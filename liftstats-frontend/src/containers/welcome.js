@@ -7,19 +7,16 @@ export default class Welcome extends Component {
     state={loginForm:false, signupForm:false}
 
     handleLoginClick = (event) => {
-        console.log("login click")
         event.preventDefault()
         this.setState({loginForm: true, signupForm:false})        
     }
 
     handleSignupClick = (event) => {
-        console.log("signup click")
         event.preventDefault()
         this.setState({loginForm: false, signupForm:true}) 
     }
 
     handleCloseForm = (event) => {
-        console.log("close form click")
         event.preventDefault()
         this.setState({loginForm: false, signupForm: false})
     }
