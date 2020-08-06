@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import LoginForm from "../components/LoginForm"
+import SignupForm from "../components/SignupForm"
 
 export default class Welcome extends Component {
 
@@ -27,10 +28,7 @@ export default class Welcome extends Component {
         } else if (this.state.signupForm === true) {
             return (                
                 <div>                
-                    <p>Track your workouts the way you want to track them.</p>
-                    <p>Then, get statistics and analysis on how you are progressing in your fitness journey.</p>
-                    <button onClick={this.handleLoginClick}>Log In</button>
-                    <button onClick={this.handleSignupClick}>Sign Up</button>        
+                    <SignupForm />    
                 </div>
             );
         } else {
