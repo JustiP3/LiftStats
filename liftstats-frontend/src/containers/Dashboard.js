@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import RecentSetsFeed from "../components/RecentSetsFeed"
+import LogSetForm from "../components/LogSetForm"
 
 
 export default class Dashboard extends Component {
@@ -8,7 +9,12 @@ export default class Dashboard extends Component {
 
     
     render() {
-       return(<div class="container"><RecentSetsFeed recentSets={this.state.recentSets} /> </div>)
+       return(
+            <div className="container">
+                <LogSetForm />
+                <RecentSetsFeed recentSets={this.state.recentSets} /> 
+            </div>
+        )
     }
   }
 
