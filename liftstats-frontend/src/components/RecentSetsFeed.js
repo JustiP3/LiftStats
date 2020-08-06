@@ -8,6 +8,7 @@ export default class RecentSetsFeed extends Component {
     }
         return (
         <div>
+            <h1>Recent Sets:</h1>
             <ul>
                 {this.props.recentSets.map(renderSet)}
             </ul>

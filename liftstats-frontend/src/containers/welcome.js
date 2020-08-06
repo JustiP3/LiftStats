@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import LoginForm from "../components/LoginForm"
 import SignupForm from "../components/SignupForm"
 
+
 export default class Welcome extends Component {
 
     state={loginForm:false, signupForm:false}
@@ -22,21 +23,26 @@ export default class Welcome extends Component {
     }
 
     render() {
+
+      
         if (this.state.loginForm === true) {
             return (                
-                <div>                
+                <div class="container">           
+                   
                     <LoginForm handleCloseForm={this.handleCloseForm} />       
                 </div>
             );                
         } else if (this.state.signupForm === true) {
             return (                
-                <div>                
+                <div class="container">  
+                            
                     <SignupForm handleCloseForm={this.handleCloseForm} />    
                 </div>
             );
         } else {
             return (                
-                <div>                
+                <div class="container"> 
+                             
                     <p>Track your workouts the way you want to track them.</p>
                     <p>Then, get statistics and analysis on how you are progressing in your fitness journey.</p>
                     <button onClick={this.handleLoginClick}>Log In</button>

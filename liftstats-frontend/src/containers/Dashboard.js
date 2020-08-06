@@ -8,7 +8,7 @@ export default class Dashboard extends Component {
 
     
     render() {
-       return(<RecentSetsFeed recentSets={this.state.recentSets} />)
+       return(<div class="container"><RecentSetsFeed recentSets={this.state.recentSets} /> </div>)
     }
   }
 
