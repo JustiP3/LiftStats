@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
+import RecentSetsFeed from "../components/RecentSetsFeed"
 
 
 export default class Dashboard extends Component {
 
-   // state={loginForm:false, signupForm:false}
+    state={recentSets: [{workout_type: "bench press", weight: 155, reps: 10}]}
 
     
     render() {
-       return(<h1>DASHBOARDDD!</h1>)
+       return(<RecentSetsFeed recentSets={this.state.recentSets} />)
     }
   }
 
