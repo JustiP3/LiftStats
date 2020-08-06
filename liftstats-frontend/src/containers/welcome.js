@@ -5,27 +5,47 @@ export default class Welcome extends Component {
 
     state={loginForm:false, signupForm:false}
 
-    handleLoginClick = () => {
-
+    handleLoginClick = (event) => {
+        console.log("login click")
+        event.preventDefault()
+        this.setState({loginForm: true, signupForm:false})        
     }
 
-    handleSignupClick = () => {
-
+    handleSignupClick = (event) => {
+        console.log("signup click")
+        event.preventDefault()
+        this.setState({loginForm: false, signupForm:true}) 
     }
-    
+
     render() {
-        return (
-        <div>
-            <button>Log In</button>
-            <button>Sign Up</button>
-            <p>Track your workouts the way you want to track them.</p>
-            <p>Then, get statistics and analysis on how you are progressing in your fitness journey.</p>
-            <LoginForm />
-        </div>
-        );
+        if (this.state.loginForm === true) {
+            return (                
+                <div>                
+                    <LoginForm />       
+                </div>
+            );                
+        } else if (this.state.signupForm === true) {
+            return (                
+                <div>                
+                    <p>Track your workouts the way you want to track them.</p>
+                    <p>Then, get statistics and analysis on how you are progressing in your fitness journey.</p>
+                    <button onClick={this.handleLoginClick}>Log In</button>
+                    <button onClick={this.handleSignupClick}>Sign Up</button>        
+                </div>
+            );
+        } else {
+            return (                
+                <div>                
+                    <p>Track your workouts the way you want to track them.</p>
+                    <p>Then, get statistics and analysis on how you are progressing in your fitness journey.</p>
+                    <button onClick={this.handleLoginClick}>Log In</button>
+                    <button onClick={this.handleSignupClick}>Sign Up</button>        
+                </div>
+            );
+        }
     }
   }
-   
+
 
      
   
