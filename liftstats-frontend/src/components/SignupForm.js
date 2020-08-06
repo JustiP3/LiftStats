@@ -8,6 +8,7 @@ export default class LoginForm extends Component {
                 <input type="text" />
                 <button type="submit">Login</button>
             </form>
+            <button onClick={this.props.handleCloseForm}>Cancel</button>
         </div>
         );
    }

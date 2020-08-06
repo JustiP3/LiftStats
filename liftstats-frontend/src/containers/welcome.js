@@ -18,17 +18,23 @@ export default class Welcome extends Component {
         this.setState({loginForm: false, signupForm:true}) 
     }
 
+    handleCloseForm = (event) => {
+        console.log("close form click")
+        event.preventDefault()
+        this.setState({loginForm: false, signupForm: false})
+    }
+
     render() {
         if (this.state.loginForm === true) {
             return (                
                 <div>                
-                    <LoginForm />       
+                    <LoginForm handleCloseForm={this.handleCloseForm} />       
                 </div>
             );                
         } else if (this.state.signupForm === true) {
             return (                
                 <div>                
-                    <SignupForm />    
+                    <SignupForm handleCloseForm={this.handleCloseForm} />    
                 </div>
             );
         } else {
