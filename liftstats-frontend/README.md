@@ -7,12 +7,17 @@ LiftStats
 CONTAINER: Welcome
 Route: '/'
 
--Displays login and logout button
+-Displays login and logout button     - DONE 
 
--Clicking either button will display a form
+-Clicking either button will display a form   - DONE 
   -form will be for login or signup and will include a cancel or x button that will return to displaying both buttons 
   -both of these forms are components with state
 
+TODO:
+    -Build each form 
+    -create event handlers for submit
+    -How do I handle login in react?
+    -
 
 ---------------
 CONTAINER: Dashboard 
@@ -37,10 +42,10 @@ Rails API backend plan
 
 
 user - email, pw_digest, display_name (maybe at OAuth authentication later)
-set - workout_type(name), weight, reps, date_code
+workout - workout_type(name), weight, reps, date_code
 
-user has_many sets
-set belongs_to user
+user has_many workouts
+workout belongs_to user
 
 there will be a lot of activerecord work. 
 I want to make sure the app is fast and I remember that activerecord can query a database very fast
@@ -56,7 +61,7 @@ ideas for components:
     -list of recents sets that broke a pr
     -select a workout_type, time_period, number_of_reps - display a graph x: time_period, y: weight for that given number of reps 
     -display a feed of all 3 prs for all workout_types 
-    
+
 
 
 --------------------
