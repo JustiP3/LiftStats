@@ -8,14 +8,14 @@ export default class LogSetForm extends Component {
 
         const handleChange = (event) => {
             const {value, name} = event.target
-            this.setState( {...this.state, [name]: [value] })
+            this.setState( {...this.state, [name]: value })
             
         }
       
 
         const handleSubmit = (event) => {
             event.preventDefault()
-            console.log("log workout submit")
+            this.props.logSet({user_id: 1, set: this.state})
         }
 
         return(

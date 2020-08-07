@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { connect } from 'react-redux'
 import RecentSetsFeed from "../components/RecentSetsFeed"
 import LogSetForm from "../components/LogSetForm"
 
@@ -12,7 +12,7 @@ class Dashboard extends Component {
     render() {
        return(
             <div className="container">
-                <LogSetForm />
+                <LogSetForm logSet={this.props.logSet} />
                 <RecentSetsFeed recentSets={this.state.recentSets} /> 
             </div>
         )
@@ -20,12 +20,12 @@ class Dashboard extends Component {
 }
 
 
-/*
-const logSet = ( set={workoutType:"", weight:0, reps: 0} ) => {
-    return {type:"LOG_SET", set}
-} 
-*/
+const mapStateToProps = state => ({recentSets: state.recentSets})
 
-
+const mapDispatchToProps = dispatch => {
+    return {
+      logSet: set => dispatch({type: 'LOG_SET', set: set })
+    }
+}
      
-export default Dashboard
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
