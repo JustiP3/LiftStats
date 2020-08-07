@@ -4,7 +4,7 @@ export default class RecentSetsFeed extends Component {
    render() {
 
     const renderSet = (set) => {
-        return(<li>{set.workout_type} Weight: {set.weight} Reps: {set.reps}</li>)
+        return(<li key={set.datecode}>{set.workoutType} Weight: {set.weight} Reps: {set.reps}</li>)
     }
         return (
         <div>

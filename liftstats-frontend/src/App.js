@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Welcome from './containers/Welcome'
 import Dashboard from './containers/Dashboard'
 import { BrowserRouter as Router, Route } from 'react-router-dom';

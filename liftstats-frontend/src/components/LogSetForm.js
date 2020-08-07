@@ -8,7 +8,7 @@ export default class LogSetForm extends Component {
 
         const handleChange = (event) => {
             const {value, name} = event.target
-            this.setState( ...this.state, {[name]: [value]} )
+            this.setState( {...this.state, [name]: [value] })
             
         }
       

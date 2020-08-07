@@ -1,13 +1,10 @@
-export default function manageWorkouts(state = {
-    userId: "", 
-    set: {workout_type:"", weight: 0, reps: 0, date:""}, 
-}, action) {
+export default function manageWorkouts(state = {userId: "", set: {workout_type:"", weight: 0, reps: 0} }, action) {
     switch (action.type) {
       case 'LOG_SET':
    
-        console.log({ /*action.set.weight*/ });
-   
-        return { /*todos: state.todos.concat(action.payload.text)*/ };
+        console.log(state.set.weight);   
+        return state;
+        
    
       default:
         return state;

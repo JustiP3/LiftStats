@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+
 import RecentSetsFeed from "../components/RecentSetsFeed"
 import LogSetForm from "../components/LogSetForm"
 
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
 
-    state={recentSets: [{workout_type: "bench press", weight: 155, reps: 10}]}
+    state={recentSets: [{workoutType: "bench press", weight: 155, reps: 10, datecode:"20200806"}]} 
 
     
     render() {
@@ -16,8 +17,15 @@ export default class Dashboard extends Component {
             </div>
         )
     }
-  }
+}
+
+
+/*
+const logSet = ( set={workoutType:"", weight:0, reps: 0} ) => {
+    return {type:"LOG_SET", set}
+} 
+*/
 
 
      
-  
+export default Dashboard
