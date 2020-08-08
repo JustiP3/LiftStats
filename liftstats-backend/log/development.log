@@ -956,3 +956,17 @@ Processing by WorkoutsController#index as */*
 Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.5ms | Allocations: 2240)
 
 
+Started GET "/workouts" for ::1 at 2020-08-08 12:25:00 -0700
+Processing by WorkoutsController#index as */*
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts"[0m
+  ↳ app/controllers/workouts_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.4ms | Allocations: 2218)
+
+
+Started GET "/workouts" for ::1 at 2020-08-08 12:25:57 -0700
+Processing by WorkoutsController#index as */*
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts"[0m
+  ↳ app/controllers/workouts_controller.rb:5:in `index'
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.5ms | Allocations: 2219)
+
+
