@@ -6,11 +6,12 @@ class WorkoutsController < ApplicationController
     end 
 
     def create 
+        puts params 
         workout = Workout.new
         workout.user_id = params["user_id"]
-        workout.workout_type = params[set["workout_type"]]
-        workout.weight = params[set["weight"]]
-        workout.reps = params[set["reps"]]
+        workout.workout_type = params[workout["workoutType"]]
+        workout.weight = params[workout["weight"]]
+        workout.reps = params[workout["reps"]]
 
             
         if workout.save 

@@ -24,7 +24,7 @@ const mapStateToProps = state => ({recentSets: state.recentSets})
 
 const mapDispatchToProps = dispatch => {
     return {
-      logSet: set => dispatch({type: 'LOG_SET', set: set })
+      logSet: workout => dispatch({type: 'LOG_SET', workout: workout })
     }
 }
      

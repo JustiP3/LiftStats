@@ -183,3 +183,77 @@ NameError (undefined local variable or method `set' for #<WorkoutsController:0x0
 Did you mean?  send):
   
 app/controllers/workouts_controller.rb:11:in `create'
+Started POST "/workouts" for ::1 at 2020-08-07 19:47:15 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WorkoutsController#create as JSON
+  Parameters: {"user_id"=>1, "set"=>{"workoutType"=>"bench press", "weight"=>"0100", "reps"=>"08"}, "workout"=>{"user_id"=>1}}
+Completed 500 Internal Server Error in 156ms (ActiveRecord: 1.6ms | Allocations: 75420)
+
+
+  
+NameError (undefined local variable or method `set' for #<WorkoutsController:0x00007fa31074e4a0>
+Did you mean?  send):
+  
+app/controllers/workouts_controller.rb:11:in `create'
+Started POST "/workouts" for ::1 at 2020-08-07 19:49:16 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WorkoutsController#create as JSON
+  Parameters: {"user_id"=>1, "set"=>{"workoutType"=>"overhead db press", "weight"=>"0100", "reps"=>"08"}, "workout"=>{"user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+  [1m[36mWorkout Create (3.4ms)[0m  [1m[32mINSERT INTO "workouts" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 1], ["created_at", "2020-08-08 02:49:16.490166"], ["updated_at", "2020-08-08 02:49:16.490166"]]
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+Completed 200 OK in 101ms (Views: 0.9ms | ActiveRecord: 13.7ms | Allocations: 17662)
+
+
+Started POST "/workouts" for ::1 at 2020-08-07 19:50:55 -0700
+Processing by WorkoutsController#create as JSON
+  Parameters: {"user_id"=>1, "set"=>{"workoutType"=>"bench press", "weight"=>"10", "reps"=>"10"}, "workout"=>{"user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+  [1m[36mWorkout Create (1.4ms)[0m  [1m[32mINSERT INTO "workouts" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 1], ["created_at", "2020-08-08 02:50:55.778872"], ["updated_at", "2020-08-08 02:50:55.778872"]]
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+Completed 200 OK in 35ms (Views: 0.5ms | ActiveRecord: 10.2ms | Allocations: 6359)
+
+
+Started POST "/workouts" for ::1 at 2020-08-07 19:51:34 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WorkoutsController#create as JSON
+  Parameters: {"user_id"=>1, "set"=>{"workoutType"=>"bench press", "weight"=>"10", "reps"=>"10"}, "workout"=>{"user_id"=>1}}
+Completed 500 Internal Server Error in 147ms (ActiveRecord: 1.7ms | Allocations: 75335)
+
+
+  
+NameError (undefined local variable or method `set' for #<WorkoutsController:0x00007fa311ebb750>
+Did you mean?  send):
+  
+app/controllers/workouts_controller.rb:11:in `create'
+Started POST "/workouts" for ::1 at 2020-08-07 19:53:46 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WorkoutsController#create as JSON
+  Parameters: {"user_id"=>1, "workout"=>{"workoutType"=>"bench press", "weight"=>"0100", "reps"=>"08"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+  [1m[36mWorkout Create (2.5ms)[0m  [1m[32mINSERT INTO "workouts" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 1], ["created_at", "2020-08-08 02:53:46.646313"], ["updated_at", "2020-08-08 02:53:46.646313"]]
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/workouts_controller.rb:16:in `create'
+Completed 200 OK in 67ms (Views: 0.4ms | ActiveRecord: 12.9ms | Allocations: 18460)
+
+
+Started POST "/workouts" for ::1 at 2020-08-07 19:54:38 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WorkoutsController#create as JSON
+  Parameters: {"user_id"=>1, "workout"=>{"workoutType"=>"bench press", "weight"=>"0100", "reps"=>"08"}}

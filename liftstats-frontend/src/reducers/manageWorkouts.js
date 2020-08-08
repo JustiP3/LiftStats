@@ -1,4 +1,4 @@
-export default function manageWorkouts(state = {userId: "", set: {workout_type:"", weight: 0, reps: 0} }, action) {
+export default function manageWorkouts(state = {userId: "", workout: {workout_type:"", weight: 0, reps: 0} }, action) {
     switch (action.type) {
       case 'LOG_SET':
 
@@ -9,7 +9,7 @@ export default function manageWorkouts(state = {userId: "", set: {workout_type:"
             "Content-Type": "application/json",
             "Accept": "application/json"
           },
-          body: JSON.stringify(action.set)
+          body: JSON.stringify(action.workout)
         }
 
         
