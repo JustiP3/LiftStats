@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController
 
     def index 
-        workouts = Workout.all 
+        workouts = Workout.where("user_id = '1'").order("created_at DESC").limit(5)
         render json: workouts 
     end 
 
