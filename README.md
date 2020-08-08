@@ -10,6 +10,11 @@ TODO List:
     -Currently /users/1/... is hardcoded and needs to be currently logged in user (see reducer and action)
 
 
+-Clear form after log workout is submitted 
+
+-Recent workouts feed should update when a a new workout is logged 
+
+
 ---------
 
 

@@ -3,12 +3,30 @@ import StatsCard from '../components/StatsCard'
 
 export default class StatsCardContainer extends Component {
 
+    state={workoutTypes: []}
+
+    componentDidMount() {
+        fetch('http://localhost:3000/users/1/workouts/types').then(resp => {
+            return resp.json()
+        }).then(json => {    
+             
+            return this.setState({workoutTypes: json.workout_types})
+        })
+    }
+
+    renderCards() {
+        if (!!this.state.workoutTypes && this.state.workoutTypes.length > 0) {
+            debugger 
+            return this.state.workoutTypes.map(workout => <StatsCard workout={workout}/>)
+        } else {
+            return <div>Error in Render Cards</div>
+        }
+    }
     
-    
-    render() {
+    render() { 
         return(
         <div className="container">
-           <StatsCard />
+           {this.renderCards()}
         </div>
         )
     }

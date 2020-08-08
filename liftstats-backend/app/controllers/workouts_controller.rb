@@ -26,6 +26,7 @@ class WorkoutsController < ApplicationController
     end 
 
     def types
+        render json: {workout_types: Workout.my_workout_types(1)}
     end 
 
     def highest_weight

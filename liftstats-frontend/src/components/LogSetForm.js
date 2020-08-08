@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class LogSetForm extends Component {
 
-    state={workoutType:"", weight:0, reps: 0}
+    state={workoutType:"", weight:"", reps: ""}
 
     render() {
 
@@ -22,13 +22,21 @@ export default class LogSetForm extends Component {
             <div>
                 <h1>Log New Set   <button onClick={this.props.handleCloseForm}>X</button></h1>
             <form onSubmit={handleSubmit} >
-                <label>Workout Type</label>
-                <input type="text" value={this.state.workoutType} onChange={handleChange} name="workoutType" /><br />
-                <label>Weight</label>
-                <input type="text" value={this.state.weight} onChange={handleChange} name="weight" /><br />
-                <label>Reps</label>
-                <input type="text" value={this.state.reps} onChange={handleChange} name="reps" /><br />
+                <div className="form-group">
+                    <label>Workout Type</label>
+                    <input type="text" value={this.state.workoutType} onChange={handleChange} name="workoutType" />
+                </div>
+                <div className="form-group">
+                    <label>Weight   </label>
+                    <input type="text" value={this.state.weight} onChange={handleChange} name="weight" />
+                </div>
+                <div className="form-group">                
+                <label>Reps   </label>                
+                <input type="text" value={this.state.reps} onChange={handleChange} name="reps" />
+                </div>
+                <div className="form-group">
                 <button type="subit">Submit</button>
+                </div>
             </form>
             <p>workout type: {this.state.workoutType}, weight: {this.state.weight},  reps: {this.state.reps}</p>
             </div>
