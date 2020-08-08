@@ -163,3 +163,23 @@ puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
 puma (4.3.5) lib/puma/server.rb:472:in `process_client'
 puma (4.3.5) lib/puma/server.rb:328:in `block in run'
 puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-08-07 19:41:33 -0700
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/justin/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/justin/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.9ms | Allocations: 315)
+Completed 200 OK in 19ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 1595)
+
+
+Started POST "/workouts" for ::1 at 2020-08-07 19:42:22 -0700
+Processing by WorkoutsController#create as JSON
+  Parameters: {"user_id"=>1, "set"=>{"workoutType"=>"bench press", "weight"=>"135", "reps"=>"10"}, "workout"=>{"user_id"=>1}}
+Completed 500 Internal Server Error in 217ms (ActiveRecord: 1.0ms | Allocations: 75687)
+
+
+  
+NameError (undefined local variable or method `set' for #<WorkoutsController:0x00007fffc2d74460>
+Did you mean?  send):
+  
+app/controllers/workouts_controller.rb:11:in `create'
