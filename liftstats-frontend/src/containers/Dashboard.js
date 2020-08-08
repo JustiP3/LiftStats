@@ -24,6 +24,10 @@ class Dashboard extends Component {
         this.setState({...this.state, showLogSetForm: true})    
         
     }
+
+    handleCloseForm = () => {
+        this.setState({...this.state, showLogSetForm: false})
+    }
     
     render() {
 
@@ -31,7 +35,7 @@ class Dashboard extends Component {
             return(
                 <div className="container">    
                     <NavBar />           
-                    <LogSetForm logSet={this.props.logSet} />
+                    <LogSetForm logSet={this.props.logSet} handleCloseForm={this.handleCloseForm} />
                     <RecentSetsFeed recentWorkouts={this.state.recentWorkouts} /> 
                 </div>
             )

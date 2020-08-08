@@ -20,7 +20,7 @@ export default class LogSetForm extends Component {
 
         return(
             <div>
-                <h1>Log New Set</h1>
+                <h1>Log New Set   <button onClick={this.props.handleCloseForm}>X</button></h1>
             <form onSubmit={handleSubmit} >
                 <label>Workout Type</label>
                 <input type="text" value={this.state.workoutType} onChange={handleChange} name="workoutType" /><br />
