@@ -25,6 +25,18 @@ class WorkoutsController < ApplicationController
         end  
     end 
 
+    def types
+    end 
+
+    def highest_weight
+    end 
+
+    def highest_weight_given_reps
+    end 
+
+    def most_reps
+    end 
+
 end
 
 

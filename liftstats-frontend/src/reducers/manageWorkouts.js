@@ -13,7 +13,7 @@ export default function manageWorkouts(state = {userId: "", recentWorkouts: []},
           body: JSON.stringify(action.workout)
         }
         
-        return fetch('http://localhost:3000/workouts', configObj).then((response) => {
+        return fetch('http://localhost:3000/users/1/workouts', configObj).then((response) => {
           return response.json();
         }).then((json) => {
           console.log(json)  //can probably delete this soon 

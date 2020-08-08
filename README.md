@@ -6,10 +6,8 @@ TODO List:
 
 -Frontend - Dashboard- Log Workout Form: user_id is currently hard coded - needs to be currently logged in user 
 
--Troubleshoot: Why is recentSetsFeed not getting it's correct props (recentSets)?
-    -I can fetch recent workouts in Dashboard > componentDidMount
-    -in workoutActions > The console.log shows all of my recent workouts in the console
-    -
+-Changed Routes to use nested routes
+    -Currently /users/1/... is hardcoded and needs to be currently logged in user (see reducer and action)
 
 
 ---------

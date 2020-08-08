@@ -7,7 +7,7 @@ export const logSet = (workout={}) => {
 
 export const fetchRecentSets = () => {
 
-    return fetch('http://localhost:3000/workouts').then((response) => {
+    return fetch('http://localhost:3000/users/1/workouts').then((response) => {
           return response.json();
         }).then((json) => {
 
