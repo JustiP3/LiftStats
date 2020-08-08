@@ -23,13 +23,7 @@ export default function manageWorkouts(state = {userId: "", recentWorkouts: []},
       case 'GET_RECENT_SETS':
         console.log("get recent sets")
 
-        return fetch('http://localhost:3000/workouts').then((response) => {
-          return response.json();
-        }).then((json) => {
-          console.log(json)
-          return {...state, recentWorkouts: json}
-        })
-       
+        return {...state, recentWorkouts: action.recentWorkouts}
 
    
       default:

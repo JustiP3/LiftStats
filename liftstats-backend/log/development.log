@@ -649,3 +649,84 @@ Completed 200 OK in 24ms (Views: 23.7ms | ActiveRecord: 0.4ms | Allocations: 485
 Completed 200 OK in 31ms (Views: 30.3ms | ActiveRecord: 0.4ms | Allocations: 5545)
 
 
+Started GET "/" for ::1 at 2020-08-08 10:34:32 -0700
+  [1m[35m (14.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/justin/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/justin/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 65.3ms | Allocations: 315)
+Completed 200 OK in 150ms (Views: 109.0ms | ActiveRecord: 0.0ms | Allocations: 1596)
+
+
+Started GET "/workouts" for ::1 at 2020-08-08 11:16:51 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WorkoutsController#index as HTML
+  [1m[36mWorkout Load (1.3ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts"[0m
+  ↳ app/controllers/workouts_controller.rb:5:in `index'
+Completed 200 OK in 66ms (Views: 10.7ms | ActiveRecord: 2.5ms | Allocations: 8009)
+
+
+Started GET "/workouts" for ::1 at 2020-08-08 11:17:49 -0700
+Processing by WorkoutsController#index as */*
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts"[0m
+  ↳ app/controllers/workouts_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.4ms | Allocations: 1929)
+
+
+Started GET "/workouts" for ::1 at 2020-08-08 11:20:07 -0700
+Processing by WorkoutsController#index as */*
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts"[0m
+  ↳ app/controllers/workouts_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.4ms | Allocations: 1945)
+
+
+Started GET "/workouts" for ::1 at 2020-08-08 11:21:49 -0700
+Processing by WorkoutsController#index as */*
+  [1m[36mWorkout Load (0.3ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts"[0m
+  ↳ app/controllers/workouts_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.3ms | Allocations: 1945)
+
+
+Started GET "/workouts" for ::1 at 2020-08-08 11:24:28 -0700
+Processing by WorkoutsController#index as */*
+  [1m[36mWorkout Load (0.3ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts"[0m
+  ↳ app/controllers/workouts_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.3ms | Allocations: 1928)
+
+
+Started GET "/workouts" for ::1 at 2020-08-08 11:31:58 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WorkoutsController#index as */*
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts"[0m
+  ↳ app/controllers/workouts_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 1961)
+
+
+Started GET "/workouts" for ::1 at 2020-08-08 11:32:18 -0700
+Processing by WorkoutsController#index as */*
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts"[0m
+  ↳ app/controllers/workouts_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.5ms | Allocations: 1928)
+
+
+Started POST "/workouts" for ::1 at 2020-08-08 11:32:38 -0700
+Processing by WorkoutsController#create as JSON
+  Parameters: {"user_id"=>1, "workout"=>{"workoutType"=>"bicep curl", "weight"=>"200", "reps"=>"10"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/workouts_controller.rb:22:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:22:in `create'
+  [1m[36mWorkout Create (2.7ms)[0m  [1m[32mINSERT INTO "workouts" ("user_id", "workout_type", "weight", "reps", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["workout_type", "bicep curl"], ["weight", 200], ["reps", 10], ["created_at", "2020-08-08 18:32:38.445445"], ["updated_at", "2020-08-08 18:32:38.445445"]]
+  ↳ app/controllers/workouts_controller.rb:22:in `create'
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/workouts_controller.rb:22:in `create'
+Completed 200 OK in 160ms (Views: 0.4ms | ActiveRecord: 11.2ms | Allocations: 12690)
+
+
+Started GET "/workouts" for ::1 at 2020-08-08 11:32:45 -0700
+Processing by WorkoutsController#index as */*
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts"[0m
+  ↳ app/controllers/workouts_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.4ms | Allocations: 2073)
+
+

@@ -3,31 +3,31 @@ import { connect } from 'react-redux'
 import RecentSetsFeed from "../components/RecentSetsFeed"
 import LogSetForm from "../components/LogSetForm"
 
+import { logSet, fetchRecentSets } from "../actions/workoutActions"
+
+
 
 class Dashboard extends Component {
 
- 
+    state={recentWorkouts: []}
+
+    componentDidMount() {
+        console.log("component did mount")
+        this.setState({recentWorkouts: fetchRecentSets()})
+    }
     
     render() {
+
        return(
             <div className="container">
                 {this.props.recentWorkouts}
                 <LogSetForm logSet={this.props.logSet} />
-                <RecentSetsFeed recentWorkouts={this.props.recentWorkouts} /> 
+                <RecentSetsFeed recentWorkouts={this.state.recentWorkouts} /> 
             </div>
         )
     }
 }
 
 
-const mapStateToProps = state => ({recentWorkouts: state.recentWorkouts})
-
-
-const mapDispatchToProps = dispatch => {
-    return {
-      logSet: workout => dispatch({type: 'LOG_SET', workout: workout }),
-      fetchRecentSets: () => dispatch({type: 'GET_RECENT_SETS'})
-    }
-}
      
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(null, { logSet, fetchRecentSets })(Dashboard)
