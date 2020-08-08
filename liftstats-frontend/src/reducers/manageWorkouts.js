@@ -2,7 +2,8 @@ export default function manageWorkouts(state = {userId: "", set: {workout_type:"
     switch (action.type) {
       case 'LOG_SET':
 
-        console.log(action.set.set.weight);   
+        console.log(action.set.set.weight);  
+
         return state;
 
    
