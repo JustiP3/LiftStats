@@ -26,7 +26,8 @@ export default function manageWorkouts(state = {userId: "", recentWorkouts: []},
         return fetch('http://localhost:3000/workouts').then((response) => {
           return response.json();
         }).then((json) => {
-          return {...state, recentWorkouts: [json]}
+          console.log(json)
+          return {...state, recentWorkouts: json}
         })
        
 

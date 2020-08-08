@@ -6,31 +6,27 @@ import LogSetForm from "../components/LogSetForm"
 
 class Dashboard extends Component {
 
-    state={recentSets: [{workoutType: "bench press", weight: 155, reps: 10, datecode:"20200806"}]} 
-
-    componentDidMount() {
-        console.log("component did mount ")
-        this.setState({recentSets: this.props.recentSets()} )
-      }
+ 
     
     render() {
        return(
             <div className="container">
+                {this.props.recentWorkouts}
                 <LogSetForm logSet={this.props.logSet} />
-                <RecentSetsFeed recentSets={this.state.recentSets} /> 
+                <RecentSetsFeed recentWorkouts={this.props.recentWorkouts} /> 
             </div>
         )
     }
 }
 
 
-const mapStateToProps = state => ({recentSets: state.recentSets})
+const mapStateToProps = state => ({recentWorkouts: state.recentWorkouts})
 
 
 const mapDispatchToProps = dispatch => {
     return {
       logSet: workout => dispatch({type: 'LOG_SET', workout: workout }),
-      recentSets: () => dispatch({type: 'GET_RECENT_SETS'})
+      fetchRecentSets: () => dispatch({type: 'GET_RECENT_SETS'})
     }
 }
      

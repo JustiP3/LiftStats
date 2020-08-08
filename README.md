@@ -1,12 +1,15 @@
 
 LiftStats 
 
-
+-------
 TODO List:
 
--Frontend - Dashboard- Log Workout Form: user_id is currently hard coded - needs to be currently logged in user *********
--Frontend - in ManageWorkouts - "GET_RECENT_STATS" is hard coded. need to respond to fetch request.
+-Frontend - Dashboard- Log Workout Form: user_id is currently hard coded - needs to be currently logged in user 
 
+-Troubleshoot: Why is recentSetsFeed not getting it's correct props (recentSets)?
+
+
+---------
 
 
 ------

@@ -4,13 +4,19 @@ export default class RecentSetsFeed extends Component {
    render() {
 
     const renderSet = (workout) => {
-        return(<li>{workout.workoutType} Weight: {workout.weight} Reps: {workout.reps}</li>)
+        if (!!workout && !!workout.workoutType) {
+            return(<li>{workout.workoutType} Weight: {workout.weight} Reps: {workout.reps}</li>)
+        } else {
+            return <li>error</li>
+        }
+        
     }
         return (
         <div>
             <h1>Recent Sets:</h1>
             <ul>
-                {renderSet(this.props.recentSets)}
+                {/*this.props.recentSets.map(workout => renderSet(workout) )*/ renderSet(this.props.recentSets)}
+              
             </ul>
         </div>
         );
