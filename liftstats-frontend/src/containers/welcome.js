@@ -41,7 +41,7 @@ export default class Welcome extends Component {
             );
         } else {
             return (                
-                <div class="container"> 
+                <div className="container"> 
                              
                     <p>Track your workouts the way you want to track them.</p>
                     <p>Then, get statistics and analysis on how you are progressing in your fitness journey.</p>
