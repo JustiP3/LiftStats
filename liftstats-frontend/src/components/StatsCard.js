@@ -16,10 +16,10 @@ export default class StatsCard extends Component {
     render() {
    
         return(
-            <div key={this.props.workout}>
+            <div key={this.props.workout} className="card">
                 <h3>{this.props.workout}</h3>
-                <p>Most Weight: {this.state.mostWeight}</p>
-                <p>Most Reps: {this.state.mostReps}</p>
+                <p>Most Weight: {this.state.mostWeight.weight} ({this.state.mostWeight.created_at})</p>
+                <p>Most Reps: </p>
             </div>
             
         )
