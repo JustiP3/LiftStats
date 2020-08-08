@@ -16,8 +16,7 @@ export default class StatsCardContainer extends Component {
 
     renderCards() {
         if (!!this.state.workoutTypes && this.state.workoutTypes.length > 0) {
-            debugger 
-            return this.state.workoutTypes.map(workout => <StatsCard workout={workout}/>)
+            return this.state.workoutTypes.map(workout => <StatsCard key={workout} workout={workout}/>)
         } else {
             return <div>Error in Render Cards</div>
         }

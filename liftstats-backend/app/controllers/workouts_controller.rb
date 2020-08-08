@@ -29,13 +29,12 @@ class WorkoutsController < ApplicationController
         render json: {workout_types: Workout.my_workout_types(1)}
     end 
 
-    def highest_weight
-    end 
+    def records
+        most_weight = {set_id: 123, weight: 123, reps: 123, ....}
+        most_reps = {set_id: 123, weight: 123, reps: 123, ....}
+        most_weight_given_reps = {set_id: 123, weight: 123, reps: 123, ....}
 
-    def highest_weight_given_reps
-    end 
-
-    def most_reps
+        render json: (most_weight: {}, most_reps: {}, most_weight_given_reps:{})
     end 
 
 end
