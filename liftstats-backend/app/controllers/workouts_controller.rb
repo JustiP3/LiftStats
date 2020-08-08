@@ -9,9 +9,9 @@ class WorkoutsController < ApplicationController
         puts params 
         workout = Workout.new
         workout.user_id = params["user_id"]
-        workout.workout_type = params[workout["workoutType"]]
-        workout.weight = params[workout["weight"]]
-        workout.reps = params[workout["reps"]]
+        workout.workout_type = params["workout"]["workoutType"]
+        workout.weight = params["workout"]["weight"]
+        workout.reps = params["workout"]["reps"]
 
             
         if workout.save 
