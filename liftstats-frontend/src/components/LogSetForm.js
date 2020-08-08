@@ -20,13 +20,14 @@ export default class LogSetForm extends Component {
 
         return(
             <div>
+                <h1>Log New Set</h1>
             <form onSubmit={handleSubmit} >
                 <label>Workout Type</label>
-                <input type="text" value={this.state.workoutType} onChange={handleChange} name="workoutType" />
+                <input type="text" value={this.state.workoutType} onChange={handleChange} name="workoutType" /><br />
                 <label>Weight</label>
-                <input type="text" value={this.state.weight} onChange={handleChange} name="weight" />
+                <input type="text" value={this.state.weight} onChange={handleChange} name="weight" /><br />
                 <label>Reps</label>
-                <input type="text" value={this.state.reps} onChange={handleChange} name="reps" />
+                <input type="text" value={this.state.reps} onChange={handleChange} name="reps" /><br />
                 <button type="subit">Submit</button>
             </form>
             <p>workout type: {this.state.workoutType}, weight: {this.state.weight},  reps: {this.state.reps}</p>
