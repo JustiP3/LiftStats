@@ -11,7 +11,6 @@ class WorkoutsController < ApplicationController
     end 
 
     def create 
-        puts params 
         workout = Workout.new
         workout.user_id = params["user_id"]
         workout.workout_type = params["workout"]["workoutType"]

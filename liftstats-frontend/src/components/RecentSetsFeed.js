@@ -5,9 +5,10 @@ export default class RecentSetsFeed extends Component {
     renderSet = (workout) => {
         
         if (!!workout) {
-            return(<li>{workout.workout_type} Weight: {workout.weight} Reps: {workout.reps}</li>)
+        
+            return(<li key={workout.id}> {workout.workout_type} Weight: {workout.weight} Reps: {workout.reps}</li> )
         } else {
-            return(<li>error</li>)
+            return(<li key={0}>error</li>)
         }
         
     }
@@ -16,8 +17,8 @@ export default class RecentSetsFeed extends Component {
      
         return (
         <div>
-            <h1>Recent Sets:</h1>
-            <ul>
+            <h1 key="title">Recent Sets:</h1>
+            <ul key="list">
                 { this.props.recentWorkouts.map(work => this.renderSet(work)) }
               
             </ul>
