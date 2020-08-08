@@ -1,4 +1,4 @@
-export default function manageWorkouts(state = {userId: "", recentWorkouts: [{workout_type:"", weight: 0, reps: 0} ]}, action) {
+export default function manageWorkouts(state = {userId: "", recentWorkouts: []}, action) {
   //{workout_type:"", weight: 0, reps: 0} 
     switch (action.type) {
       case 'LOG_SET':
@@ -16,13 +16,19 @@ export default function manageWorkouts(state = {userId: "", recentWorkouts: [{wo
         return fetch('http://localhost:3000/workouts', configObj).then((response) => {
           return response.json();
         }).then((json) => {
-          console.log(json)
-          return json 
+          console.log(json)  //can probably delete this soon 
+          return {...state, recentWorkouts: [...state.recentWorkouts, json]}
         })      
         
       case 'GET_RECENT_SETS':
         console.log("get recent sets")
-        return state 
+
+        return fetch('http://localhost:3000/workouts').then((response) => {
+          return response.json();
+        }).then((json) => {
+          return {...state, recentWorkouts: [json]}
+        })
+       
 
    
       default:
