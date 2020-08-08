@@ -9,11 +9,13 @@ import { logSet, fetchRecentSets } from "../actions/workoutActions"
 
 class Dashboard extends Component {
 
-    state={recentWorkouts: []}
+    state={recentWorkouts: [{workoutType:"bench press", weight: 150, reps: 10}]}
 
     componentDidMount() {
         console.log("component did mount")
-        this.setState({recentWorkouts: fetchRecentSets()})
+       fetchRecentSets().then( resp => {
+           this.setState({recentWorkouts: resp.recentWorkouts}) 
+        })      
     }
     
     render() {

@@ -11,11 +11,9 @@ export const fetchRecentSets = () => {
           return response.json();
         }).then((json) => {
 
-          console.log(json)
-          return {
-              type: 'GET_RECENT_SETS', recentWorkouts: json
-          }  
-
+          console.log(json) // I see this in console problem is below 
+          return { type: 'GET_RECENT_SETS', recentWorkouts: json }  
+          
         })      
     
 }
