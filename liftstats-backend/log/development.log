@@ -1749,3 +1749,643 @@ Processing by WorkoutsController#types as */*
 Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 691)
 
 
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:09:04 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/mnt/c/Users/jphil/dev/flatiron/labs/liftstats/liftstats-backend/app/controllers/workouts_controller.rb:33: syntax error, unexpected ..., expecting '}'
+...23, weight: 123, reps: 123, ....}
+...                            ^~~
+/mnt/c/Users/jphil/dev/flatiron/labs/liftstats/liftstats-backend/app/controllers/workouts_controller.rb:34: syntax error, unexpected ..., expecting '}'
+...23, weight: 123, reps: 123, ....}
+...                            ^~~
+/mnt/c/Users/jphil/dev/flatiron/labs/liftstats/liftstats-backend/app/controllers/workouts_controller.rb:35: syntax error, unexpected ..., expecting '}'
+...23, weight: 123, reps: 123, ....}
+...                            ^~~
+/mnt/c/Users/jphil/dev/flatiron/labs/liftstats/liftstats-backend/app/controllers/workouts_controller.rb:37: syntax error, unexpected tLABEL
+...     render json: (most_weight: {}, most_reps: {}, most_weig...
+...                   ^~~~~~~~~~~~):
+  
+app/controllers/workouts_controller.rb:33: syntax error, unexpected ..., expecting '}'
+app/controllers/workouts_controller.rb:34: syntax error, unexpected ..., expecting '}'
+app/controllers/workouts_controller.rb:35: syntax error, unexpected ..., expecting '}'
+app/controllers/workouts_controller.rb:37: syntax error, unexpected tLABEL
+app/controllers/workouts_controller.rb:33: syntax error, unexpected ..., expecting '}'
+app/controllers/workouts_controller.rb:34: syntax error, unexpected ..., expecting '}'
+app/controllers/workouts_controller.rb:35: syntax error, unexpected ..., expecting '}'
+app/controllers/workouts_controller.rb:37: syntax error, unexpected tLABEL
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mWorkout Load (0.9ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (type = 'bench press') LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/users/1/workouts/bench%20press" for ::1 at 2020-08-08 16:16:11 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WorkoutsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"bench press"}
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE "workouts"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:9:in `show'
+Completed 200 OK in 37ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 2520)
+
+
+Started GET "/users/1/workouts/bench%20press/records" for ::1 at 2020-08-08 16:16:22 -0700
+Processing by WorkoutsController#records as HTML
+  Parameters: {"id"=>"1", "type"=>"bench press"}
+  [1m[36mWorkout Load (0.9ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bench press') ORDER BY weight DESC[0m
+  ↳ app/controllers/workouts_controller.rb:37:in `records'
+Completed 200 OK in 22ms (Views: 18.7ms | ActiveRecord: 1.5ms | Allocations: 5985)
+
+
+Started GET "/users/1/workouts/bench%20press/records" for ::1 at 2020-08-08 16:16:49 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WorkoutsController#records as HTML
+  Parameters: {"id"=>"1", "type"=>"bench press"}
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bench press') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:37:in `records'
+Completed 200 OK in 39ms (Views: 13.8ms | ActiveRecord: 2.5ms | Allocations: 6539)
+
+
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:21:59 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '1')[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 19ms (Views: 1.2ms | ActiveRecord: 2.2ms | Allocations: 1794)
+
+
+Started GET "/users/1/workouts/bench%20press/records" for ::1 at 2020-08-08 16:22:00 -0700
+Started GET "/users/1/workouts/squats/records" for ::1 at 2020-08-08 16:22:00 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WorkoutsController#records as */*
+Started GET "/users/1/workouts/null/records" for ::1 at 2020-08-08 16:22:00 -0700
+Started GET "/users/1/workouts/bicep%20curl/records" for ::1 at 2020-08-08 16:22:00 -0700
+Started GET "/users/1/workouts/db%20row/records" for ::1 at 2020-08-08 16:22:00 -0700
+  Parameters: {"id"=>"1", "type"=>"bench press"}
+Processing by WorkoutsController#records as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mWorkout Load (0.6ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bench press') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  Parameters: {"id"=>"1", "type"=>"squats"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"bicep curl"}
+Processing by WorkoutsController#records as */*
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'squats') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by WorkoutsController#records as */*
+  ↳ app/controllers/workouts_controller.rb:40:in `records'
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bicep curl') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Parameters: {"id"=>"1", "type"=>"null"}
+  ↳ app/controllers/workouts_controller.rb:40:in `records'
+  Parameters: {"id"=>"1", "type"=>"db row"}
+Completed 200 OK in 80ms (Views: 77.3ms | ActiveRecord: 2.1ms | Allocations: 10235)
+
+
+  ↳ app/controllers/workouts_controller.rb:40:in `records'
+  [1m[36mWorkout Load (0.6ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'null') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 35ms (Views: 34.2ms | ActiveRecord: 0.5ms | Allocations: 7996)
+
+
+  [1m[36mWorkout Load (0.7ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'db row') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.5ms | Allocations: 7318)
+
+
+  ↳ app/controllers/workouts_controller.rb:40:in `records'
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.6ms | Allocations: 2987)
+
+
+  ↳ app/controllers/workouts_controller.rb:40:in `records'
+Completed 200 OK in 44ms (Views: 43.1ms | ActiveRecord: 0.7ms | Allocations: 2949)
+
+
+Started GET "/users/1/workouts/lat%20pull%20down/records" for ::1 at 2020-08-08 16:22:00 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"lat pull down"}
+  [1m[36mWorkout Load (0.3ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'lat pull down') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:40:in `records'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 1112)
+
+
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:23:08 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '1')[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 30ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 1771)
+
+
+Started GET "/users/1/workouts/bench%20press/records" for ::1 at 2020-08-08 16:23:08 -0700
+Started GET "/users/1/workouts/squats/records" for ::1 at 2020-08-08 16:23:08 -0700
+Started GET "/users/1/workouts/null/records" for ::1 at 2020-08-08 16:23:08 -0700
+Started GET "/users/1/workouts/bicep%20curl/records" for ::1 at 2020-08-08 16:23:08 -0700
+Started GET "/users/1/workouts/db%20row/records" for ::1 at 2020-08-08 16:23:08 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"bench press"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mWorkout Load (0.7ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bench press') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"bicep curl"}
+  Parameters: {"id"=>"1", "type"=>"null"}
+  Parameters: {"id"=>"1", "type"=>"squats"}
+Completed 200 OK in 42ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 9644)
+
+
+  Parameters: {"id"=>"1", "type"=>"db row"}
+  [1m[36mWorkout Load (1.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bicep curl') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'null') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'squats') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.7ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'db row') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 3215)
+
+
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 3079)
+
+
+Completed 200 OK in 19ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 3088)
+
+
+Completed 200 OK in 19ms (Views: 1.3ms | ActiveRecord: 0.7ms | Allocations: 2926)
+
+
+Started GET "/users/1/workouts/lat%20pull%20down/records" for ::1 at 2020-08-08 16:23:08 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"lat pull down"}
+  [1m[36mWorkout Load (0.9ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'lat pull down') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 906)
+
+
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:26:34 -0700
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '1')[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 691)
+
+
+Started GET "/users/1/workouts/squats/records" for ::1 at 2020-08-08 16:26:35 -0700
+Started GET "/users/1/workouts/bench%20press/records" for ::1 at 2020-08-08 16:26:35 -0700
+Started GET "/users/1/workouts/null/records" for ::1 at 2020-08-08 16:26:35 -0700
+Started GET "/users/1/workouts/bicep%20curl/records" for ::1 at 2020-08-08 16:26:35 -0700
+Started GET "/users/1/workouts/db%20row/records" for ::1 at 2020-08-08 16:26:35 -0700
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"null"}
+  Parameters: {"id"=>"1", "type"=>"squats"}
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+  [1m[36mWorkout Load (0.9ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'null') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'squats') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Parameters: {"id"=>"1", "type"=>"bench press"}
+  Parameters: {"id"=>"1", "type"=>"db row"}
+  Parameters: {"id"=>"1", "type"=>"bicep curl"}
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bench press') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'db row') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.6ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bicep curl') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 2210)
+
+
+Completed 200 OK in 27ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 2223)
+
+
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 3084)
+
+
+Completed 200 OK in 12ms (Views: 1.9ms | ActiveRecord: 0.5ms | Allocations: 3092)
+
+
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 3101)
+
+
+Started GET "/users/1/workouts/lat%20pull%20down/records" for ::1 at 2020-08-08 16:26:35 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"lat pull down"}
+  [1m[36mWorkout Load (0.6ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'lat pull down') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 906)
+
+
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:28:42 -0700
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '1')[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 26ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 691)
+
+
+Started GET "/users/1/workouts/bench%20press/records" for ::1 at 2020-08-08 16:28:42 -0700
+Started GET "/users/1/workouts/squats/records" for ::1 at 2020-08-08 16:28:42 -0700
+Started GET "/users/1/workouts/db%20row/records" for ::1 at 2020-08-08 16:28:42 -0700
+Started GET "/users/1/workouts/bicep%20curl/records" for ::1 at 2020-08-08 16:28:42 -0700
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+Started GET "/users/1/workouts/null/records" for ::1 at 2020-08-08 16:28:42 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"squats"}
+  Parameters: {"id"=>"1", "type"=>"bench press"}
+  Parameters: {"id"=>"1", "type"=>"db row"}
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"bicep curl"}
+  [1m[36mWorkout Load (0.3ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'squats') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.3ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bench press') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.3ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'db row') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Parameters: {"id"=>"1", "type"=>"null"}
+  [1m[36mWorkout Load (1.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bicep curl') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'null') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 23ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 3225)
+
+
+Completed 200 OK in 33ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 3234)
+
+
+Completed 200 OK in 34ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 3242)
+
+
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 40ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 2864)
+
+
+Completed 200 OK in 35ms (Views: 0.5ms | ActiveRecord: 1.8ms | Allocations: 3689)
+
+
+Started GET "/users/1/workouts/lat%20pull%20down/records" for ::1 at 2020-08-08 16:28:42 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"lat pull down"}
+  [1m[36mWorkout Load (0.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'lat pull down') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 916)
+
+
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:30:02 -0700
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '1')[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 691)
+
+
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:30:16 -0700
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '1')[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 58ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 691)
+
+
+Started GET "/users/1/workouts/bench%20press/records" for ::1 at 2020-08-08 16:30:17 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"bench press"}
+  [1m[36mWorkout Load (1.7ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bench press') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Started GET "/users/1/workouts/db%20row/records" for ::1 at 2020-08-08 16:30:17 -0700
+Started GET "/users/1/workouts/null/records" for ::1 at 2020-08-08 16:30:17 -0700
+Started GET "/users/1/workouts/bicep%20curl/records" for ::1 at 2020-08-08 16:30:17 -0700
+Started GET "/users/1/workouts/squats/records" for ::1 at 2020-08-08 16:30:17 -0700
+Completed 200 OK in 55ms (Views: 19.7ms | ActiveRecord: 1.7ms | Allocations: 906)
+
+
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"squats"}
+  [1m[36mWorkout Load (1.2ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'squats') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Parameters: {"id"=>"1", "type"=>"bicep curl"}
+  [1m[36mWorkout Load (0.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bicep curl') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  Parameters: {"id"=>"1", "type"=>"db row"}
+  Parameters: {"id"=>"1", "type"=>"null"}
+Completed 200 OK in 88ms (Views: 1.5ms | ActiveRecord: 0.8ms | Allocations: 906)
+
+
+Completed 200 OK in 101ms (Views: 0.8ms | ActiveRecord: 1.2ms | Allocations: 1842)
+
+
+  [1m[36mWorkout Load (0.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'db row') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'null') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 56ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 1658)
+
+
+Completed 200 OK in 63ms (Views: 1.1ms | ActiveRecord: 0.8ms | Allocations: 2144)
+
+
+Started GET "/users/1/workouts/lat%20pull%20down/records" for ::1 at 2020-08-08 16:30:17 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"lat pull down"}
+  [1m[36mWorkout Load (1.0ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'lat pull down') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 34ms (Views: 1.4ms | ActiveRecord: 1.0ms | Allocations: 906)
+
+
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:31:08 -0700
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '1')[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 29ms (Views: 0.5ms | ActiveRecord: 1.6ms | Allocations: 691)
+
+
+Started GET "/users/1/workouts/bench%20press/records" for ::1 at 2020-08-08 16:31:08 -0700
+Started GET "/users/1/workouts/squats/records" for ::1 at 2020-08-08 16:31:08 -0700
+Processing by WorkoutsController#records as */*
+Started GET "/users/1/workouts/null/records" for ::1 at 2020-08-08 16:31:08 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"bench press"}
+Started GET "/users/1/workouts/bicep%20curl/records" for ::1 at 2020-08-08 16:31:08 -0700
+Started GET "/users/1/workouts/db%20row/records" for ::1 at 2020-08-08 16:31:08 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"squats"}
+  [1m[36mWorkout Load (0.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bench press') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+  [1m[36mWorkout Load (0.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'squats') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Parameters: {"id"=>"1", "type"=>"null"}
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 44ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 2610)
+
+
+  Parameters: {"id"=>"1", "type"=>"bicep curl"}
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  [1m[36mWorkout Load (0.6ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'null') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Parameters: {"id"=>"1", "type"=>"db row"}
+  [1m[36mWorkout Load (0.3ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bicep curl') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 65ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 2596)
+
+
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'db row') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 2625)
+
+
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 2623)
+
+
+Completed 200 OK in 25ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 2154)
+
+
+Started GET "/users/1/workouts/lat%20pull%20down/records" for ::1 at 2020-08-08 16:31:08 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"lat pull down"}
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'lat pull down') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 906)
+
+
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:32:00 -0700
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '1')[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 691)
+
+
+Started GET "/users/1/workouts/bench%20press/records" for ::1 at 2020-08-08 16:32:00 -0700
+Started GET "/users/1/workouts/squats/records" for ::1 at 2020-08-08 16:32:00 -0700
+Started GET "/users/1/workouts/null/records" for ::1 at 2020-08-08 16:32:00 -0700
+Processing by WorkoutsController#records as */*
+Started GET "/users/1/workouts/bicep%20curl/records" for ::1 at 2020-08-08 16:32:00 -0700
+Started GET "/users/1/workouts/db%20row/records" for ::1 at 2020-08-08 16:32:00 -0700
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"bench press"}
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"null"}
+  Parameters: {"id"=>"1", "type"=>"squats"}
+  [1m[36mWorkout Load (1.1ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bench press') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Parameters: {"id"=>"1", "type"=>"bicep curl"}
+  Parameters: {"id"=>"1", "type"=>"db row"}
+  [1m[36mWorkout Load (0.3ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'null') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'squats') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bicep curl') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.6ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'db row') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 24ms (Views: 0.8ms | ActiveRecord: 1.1ms | Allocations: 2787)
+
+
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 3531)
+
+
+Completed 200 OK in 33ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 3544)
+
+
+Completed 200 OK in 35ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 3322)
+
+
+Completed 200 OK in 35ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 3330)
+
+
+Started GET "/users/1/workouts/lat%20pull%20down/records" for ::1 at 2020-08-08 16:32:00 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"lat pull down"}
+  [1m[36mWorkout Load (0.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'lat pull down') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 906)
+
+
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:32:08 -0700
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '1')[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 692)
+
+
+Started GET "/users/1/workouts/squats/records" for ::1 at 2020-08-08 16:32:08 -0700
+Started GET "/users/1/workouts/bench%20press/records" for ::1 at 2020-08-08 16:32:08 -0700
+Started GET "/users/1/workouts/null/records" for ::1 at 2020-08-08 16:32:08 -0700
+Started GET "/users/1/workouts/bicep%20curl/records" for ::1 at 2020-08-08 16:32:08 -0700
+Started GET "/users/1/workouts/db%20row/records" for ::1 at 2020-08-08 16:32:08 -0700
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"db row"}
+  Parameters: {"id"=>"1", "type"=>"bench press"}
+  Parameters: {"id"=>"1", "type"=>"null"}
+  Parameters: {"id"=>"1", "type"=>"bicep curl"}
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bicep curl') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (2.1ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'db row') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWorkout Load (0.7ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bench press') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  Parameters: {"id"=>"1", "type"=>"squats"}
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 40ms (Views: 1.9ms | ActiveRecord: 0.5ms | Allocations: 2295)
+
+
+  [1m[36mWorkout Load (2.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'null') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 2283)
+
+
+  [1m[36mWorkout Load (0.6ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'squats') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 116ms (Views: 0.7ms | ActiveRecord: 2.1ms | Allocations: 4599)
+
+
+Completed 200 OK in 113ms (Views: 0.3ms | ActiveRecord: 2.5ms | Allocations: 4230)
+
+
+Completed 200 OK in 70ms (Views: 1.3ms | ActiveRecord: 0.6ms | Allocations: 2400)
+
+
+Started GET "/users/1/workouts/lat%20pull%20down/records" for ::1 at 2020-08-08 16:32:09 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"lat pull down"}
+  [1m[36mWorkout Load (2.0ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'lat pull down') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 909)
+
+
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:32:56 -0700
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '1')[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 14ms (Views: 0.9ms | ActiveRecord: 0.5ms | Allocations: 691)
+
+
+Started GET "/users/1/workouts/bench%20press/records" for ::1 at 2020-08-08 16:32:56 -0700
+Started GET "/users/1/workouts/squats/records" for ::1 at 2020-08-08 16:32:56 -0700
+Processing by WorkoutsController#records as */*
+Started GET "/users/1/workouts/null/records" for ::1 at 2020-08-08 16:32:56 -0700
+  Parameters: {"id"=>"1", "type"=>"bench press"}
+Started GET "/users/1/workouts/bicep%20curl/records" for ::1 at 2020-08-08 16:32:56 -0700
+Started GET "/users/1/workouts/db%20row/records" for ::1 at 2020-08-08 16:32:56 -0700
+Processing by WorkoutsController#records as */*
+Processing by WorkoutsController#records as */*
+  [1m[36mWorkout Load (1.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bench press') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Parameters: {"id"=>"1", "type"=>"squats"}
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"null"}
+Processing by WorkoutsController#records as */*
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  [1m[36mWorkout Load (1.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'squats') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Parameters: {"id"=>"1", "type"=>"bicep curl"}
+  [1m[36mWorkout Load (0.6ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'null') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Parameters: {"id"=>"1", "type"=>"db row"}
+Completed 200 OK in 34ms (Views: 1.2ms | ActiveRecord: 1.8ms | Allocations: 2172)
+
+
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'bicep curl') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+  [1m[36mWorkout Load (0.6ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'db row') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 0.6ms | ActiveRecord: 1.5ms | Allocations: 2564)
+
+
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 50ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 2845)
+
+
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 2871)
+
+
+Completed 200 OK in 56ms (Views: 4.7ms | ActiveRecord: 0.6ms | Allocations: 2573)
+
+
+Started GET "/users/1/workouts/lat%20pull%20down/records" for ::1 at 2020-08-08 16:32:56 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"1", "type"=>"lat pull down"}
+  [1m[36mWorkout Load (0.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') AND (workout_type = 'lat pull down') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:39:in `records'
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 906)
+
+
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (23.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200806202647)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password_digest" varchar, "display_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200806202647"]]
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateWorkouts (20200806203317)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "workouts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "workout_type" varchar, "weight" integer, "reps" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200806203317"]]
+  [1m[35m (9.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-08-08 23:34:33.797981"], ["updated_at", "2020-08-08 23:34:33.797981"]]
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/1/workouts" for ::1 at 2020-08-08 16:34:58 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WorkoutsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mWorkout Load (0.6ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/workouts_controller.rb:6:in `index'
+Completed 200 OK in 45ms (Views: 3.3ms | ActiveRecord: 1.1ms | Allocations: 2321)
+
+
+Started POST "/users/1/workouts" for ::1 at 2020-08-08 16:35:09 -0700
+Processing by WorkoutsController#create as JSON
+  Parameters: {"user_id"=>"1", "workout"=>{"workoutType"=>"bench press", "weight"=>"135", "reps"=>"10"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/workouts_controller.rb:23:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:23:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/workouts_controller.rb:23:in `create'
+Completed 200 OK in 189ms (Views: 0.3ms | ActiveRecord: 4.7ms | Allocations: 13790)
+
+
+Started GET "/users/1/workouts/types" for ::1 at 2020-08-08 16:35:24 -0700
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '1')[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 673)
+
+
+Started GET "/users/1/workouts" for ::1 at 2020-08-08 16:35:25 -0700
+Processing by WorkoutsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mWorkout Load (0.7ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '1') ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/workouts_controller.rb:6:in `index'
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.7ms | Allocations: 902)
+
+
