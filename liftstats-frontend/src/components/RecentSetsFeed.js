@@ -3,14 +3,14 @@ import React, { Component } from 'react'
 export default class RecentSetsFeed extends Component {
    render() {
 
-    const renderSet = (set) => {
-        return(<li key={set.datecode}>{set.workoutType} Weight: {set.weight} Reps: {set.reps}</li>)
+    const renderSet = (workout) => {
+        return(<li>{workout.workoutType} Weight: {workout.weight} Reps: {workout.reps}</li>)
     }
         return (
         <div>
             <h1>Recent Sets:</h1>
             <ul>
-                {this.props.recentSets.map(renderSet)}
+                {renderSet(this.props.recentSets)}
             </ul>
         </div>
         );

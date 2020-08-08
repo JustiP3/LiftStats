@@ -8,6 +8,10 @@ class Dashboard extends Component {
 
     state={recentSets: [{workoutType: "bench press", weight: 155, reps: 10, datecode:"20200806"}]} 
 
+    componentDidMount() {
+        console.log("component did mount ")
+        this.setState({recentSets: this.props.recentSets()} )
+      }
     
     render() {
        return(
@@ -22,9 +26,11 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => ({recentSets: state.recentSets})
 
+
 const mapDispatchToProps = dispatch => {
     return {
-      logSet: workout => dispatch({type: 'LOG_SET', workout: workout })
+      logSet: workout => dispatch({type: 'LOG_SET', workout: workout }),
+      recentSets: () => dispatch({type: 'GET_RECENT_SETS'})
     }
 }
      
