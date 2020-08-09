@@ -6,19 +6,16 @@ TODO List:
 
 -Frontend - Dashboard- Log Workout Form: user_id is currently hard coded - needs to be currently logged in user 
 
--Changed Routes to use nested routes
-    -Currently /users/1/... is hardcoded and needs to be currently logged in user (see reducer and action)
-
-
 -Clear form after log workout is submitted 
 
 -Recent workouts feed should update when a a new workout is logged 
 
--need some sort of basic login
-
 -continue building cool stats functionality 
 
--fix log workout not working 
+-implement graphs, reserch good libraries that will integrate well with what I'm doing 
+
+-user defined groups (upper body, legs, arms, etc.) and add filter by group 
+
 
 
 ---------
