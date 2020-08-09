@@ -17,7 +17,12 @@ export default function manageWorkouts(state = {userId: "", recentWorkouts: []},
           return response.json();
         }).then((json) => {
           console.log(json)  //can probably delete this soon 
-          return {...state, recentWorkouts: [...state.recentWorkouts, json]}
+          if (state.recentWorkouts.length > 0) {
+            return {...state, recentWorkouts: [...state.recentWorkouts, json]}
+          } else {
+            return {...state, recentWorkouts: [json]}
+          }
+          
         })      
         
       case 'GET_RECENT_SETS':
