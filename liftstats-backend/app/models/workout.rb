@@ -8,6 +8,10 @@ class Workout < ApplicationRecord
     def self.my_workout_types(user_id=1)
        Workout.where("user_id = '#{user_id}'").distinct.pluck(:workout_type)
     end 
+
+    def self.most_reps(workout_type)
+        Workout.where("user_id = '1'").where("workout_type = '#{workout_type}'").order("reps DESC").limit(1)
+    end
 end
 
 

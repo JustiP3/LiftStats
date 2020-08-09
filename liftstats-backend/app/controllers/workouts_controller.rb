@@ -37,7 +37,8 @@ class WorkoutsController < ApplicationController
         user = params["id"]
 
         most_weight = Workout.highest_weight(type)[0]
-        render json: {most_weight: most_weight}
+        most_reps = Workout.most_reps(type)[0]
+        render json: {most_weight: most_weight, most_reps: most_reps}
 
         #most_weight = {set_id: 123, weight: 123, reps: 123, ....}
         #most_reps = {set_id: 123, weight: 123, reps: 123, ....}

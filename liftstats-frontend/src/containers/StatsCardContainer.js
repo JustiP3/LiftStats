@@ -25,6 +25,7 @@ export default class StatsCardContainer extends Component {
     render() { 
         return(
         <div className="container">
+            <h2>Personal Records:</h2>
            {this.renderCards()}
         </div>
         )
