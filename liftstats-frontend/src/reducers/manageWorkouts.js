@@ -17,7 +17,7 @@ export default function manageWorkouts(state = {userId: "", recentWorkouts: []},
           return response.json();
         }).then((json) => {
           console.log(json)  //can probably delete this soon 
-          if (state.recentWorkouts.length > 0) {
+          if (!!state.recentWorkouts && state.recentWorkouts.length > 0) {
             return {...state, recentWorkouts: [...state.recentWorkouts, json]}
           } else {
             return {...state, recentWorkouts: [json]}

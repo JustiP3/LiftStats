@@ -19,21 +19,33 @@ class WorkoutsController < ApplicationController
         workout.weight = params["workout"]["weight"]
         workout.reps = params["workout"]["reps"]
 
-        #most_weight = Workout.highest_weight(workout.workout_type)[0]
-        #most_reps = Workout.most_reps(workout.workout_type)[0]
-        #most_weight_given_reps = Workout.most_weight_given_reps(workout.workout_type, workout.reps)[0]
+        most_weight = Workout.highest_weight(workout.workout_type)[0]
+        most_reps = Workout.most_reps(workout.workout_type)[0] 
+        most_weight_given_reps = Workout.most_weight_given_reps(workout.workout_type, workout.reps)[0]
 
-        #if ((workout.weight > most_weight) || (workout.reps > most_reps) || (workout.weight > most_weight_given_reps)) 
-            
-        #end 
-        workout.personal_record = true     
-        render json: workout
-        #if workout.save 
+        if !most_weight 
+            most_weight = {weight: 0}
+        end 
+        if !most_reps       
+            most_reps = {reps: 0}
+        end 
+        if !most_weight_given_reps
+            most_weight_given_reps = {weight: 0}
+        end 
 
-         #   render json: workout      
-        #else 
-       #     render json: workout.errors 
-       # end  
+        if workout.weight > most_weight[:weight]
+            workout.personal_record = true
+        elsif workout.reps > most_reps[:reps]
+            workout.personal_record = true 
+        elsif workout.weight > most_weight_given_reps[:weight]
+            workout.personal_record = true 
+        end      
+        
+        if workout.save 
+            render json: workout      
+        else 
+            render json: workout.errors 
+        end  
     end 
 
     def types

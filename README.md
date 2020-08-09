@@ -18,6 +18,8 @@ TODO List:
 
 -continue building cool stats functionality 
 
+-fix log workout not working 
+
 
 ---------
 
