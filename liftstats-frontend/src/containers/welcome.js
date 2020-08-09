@@ -27,14 +27,14 @@ export default class Welcome extends Component {
       
         if (this.state.loginForm === true) {
             return (                
-                <div class="container">           
+                <div className="container">           
                    
                     <LoginForm handleCloseForm={this.handleCloseForm} />       
                 </div>
             );                
         } else if (this.state.signupForm === true) {
             return (                
-                <div class="container">  
+                <div className="container">  
                             
                     <SignupForm handleCloseForm={this.handleCloseForm} />    
                 </div>

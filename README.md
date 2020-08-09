@@ -14,6 +14,10 @@ TODO List:
 
 -Recent workouts feed should update when a a new workout is logged 
 
+-need some sort of basic login
+
+-continue building cool stats functionality 
+
 
 ---------
 

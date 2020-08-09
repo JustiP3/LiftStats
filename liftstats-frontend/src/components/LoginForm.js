@@ -4,19 +4,31 @@ export default class LoginForm extends Component {
 
     state={email:"", password:""}
 
-    handleChange(event) {
-        this.setState({})
+    handleChange = (event) => {
+      const {value, name} = event.target
+      this.setState( {...this.state, [name]: value })
+      
     }
 
     handleSubmit(event) {
         event.preventDefault() 
-        this.props.login(this.state.email)
+        // fetch request to users/validate
+        
     }
+
     render() {
             return (
             <div>
-                <form>
-                    <input type="text" />
+                <h1>Log In</h1>
+                <form onSubmit={this.handleSubmit}>
+                  <div className="form-group">
+                    <label>Email</label>
+                    <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
+                    </div>
+                    <div className="form-group">
+                      <label>password</label>
+                      <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+                    </div>
                     <button type="submit">Login</button>
                 </form>
                 <button onClick={this.props.handleCloseForm}>Cancel</button>
@@ -24,47 +36,4 @@ export default class LoginForm extends Component {
             );
     }
 }
-
-
-/*
-import React, { Component } from 'react';
-
-class BandInput extends Component {
-
-  state = {
-    bandName: ''
-  }
-
-  handleOnChange(event) {
-    this.setState({
-      bandName: event.target.value,
-    });
-  }
-
-  handleOnSubmit(event) {
-    event.preventDefault();
-    this.props.addBand(this.state.bandName);
-    this.setState({
-      bandName: '',
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <input
-            type="text"
-            value={this.state.bandName}
-            onChange={(event) => this.handleOnChange(event)} />
-          <input type="submit" />
-        </form>
-      </div>
-    );
-  }
-};
-
-*/
-
-
 
