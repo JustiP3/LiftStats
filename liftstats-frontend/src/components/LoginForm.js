@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom';
 
 export default class LoginForm extends Component {
 
@@ -12,7 +13,7 @@ export default class LoginForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault() 
-        // fetch request to users/validate
+        
         
     }
 
@@ -20,7 +21,7 @@ export default class LoginForm extends Component {
             return (
             <div>
                 <h1>Log In</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form>
                   <div className="form-group">
                     <label>Email</label>
                     <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
@@ -29,7 +30,7 @@ export default class LoginForm extends Component {
                       <label>password</label>
                       <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                     </div>
-                    <button type="submit">Login</button>
+                    <button><NavLink to="/dashboard">Log In</NavLink></button>
                 </form>
                 <button onClick={this.props.handleCloseForm}>Cancel</button>
             </div>
