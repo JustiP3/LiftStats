@@ -14,7 +14,7 @@ export default class LogSetForm extends Component {
       
 
         const handleSubmit = (event) => {
-            event.preventDefault()
+            
             this.props.logSet({user_id: 1, workout: this.state})
         }
 
@@ -38,7 +38,6 @@ export default class LogSetForm extends Component {
                 <button type="subit">Submit</button>
                 </div>
             </form>
-            <p>workout type: {this.state.workoutType}, weight: {this.state.weight},  reps: {this.state.reps}</p>
             </div>
         )
     }

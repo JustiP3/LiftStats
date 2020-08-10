@@ -30,7 +30,7 @@ export default class StatsCard extends Component {
                 if (!!json.most_weight_given_reps) {                
                     return this.setState({...this.state, mostWeightGivenReps:{reps:json.most_weight_given_reps.reps, weight:json.most_weight_given_reps.weight}})
                 } else {
-                    return this.setState({...this.state, mostWeightGivenReps:{reps:reps, weight:"You have never logged this number of reps."}})
+                    return this.setState({...this.state, mostWeightGivenReps:{reps:"N/A", weight:"0"}})
                 }           
                 
             })
@@ -38,9 +38,9 @@ export default class StatsCard extends Component {
 
         return(
             <div key={this.props.workout} className="card">
-                <h1>{this.props.workout}</h1>
-                <h3>Most Weight: {this.state.mostWeight.weight} lbs.</h3><p>({this.state.mostWeight.created_at})</p>
-                <h3>Most Reps: {this.state.mostReps.reps} lifting {this.state.mostReps.weight} lbs.  </h3><p>({this.state.mostReps.created_at})</p>                
+                <h2>{this.props.workout}</h2>
+                <p>Most Weight: {this.state.mostWeight.weight} lbs.({this.state.mostWeight.created_at})</p>
+                <p>Most Reps: {this.state.mostReps.reps} lifting {this.state.mostReps.weight} lbs. ({this.state.mostReps.created_at})</p>                
                 <MostWeightGivenReps mostWeightGivenReps={this.state.mostWeightGivenReps} handleSubmitReps={handleSubmitReps} />
             </div>
             
