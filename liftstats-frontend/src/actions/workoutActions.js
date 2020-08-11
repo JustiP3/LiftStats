@@ -5,16 +5,3 @@ export const logSet = (workout={}) => {
     } };
 
 
-export const fetchRecentSets = () => {
-
-    return fetch('http://localhost:3000/users/1/workouts').then((response) => {
-          return response.json();
-        }).then((json) => {
-
-          console.log(json) // I see this in console problem is below 
-          return { type: 'GET_RECENT_SETS', recentWorkouts: json }  
-          
-        })      
-    
-}
-

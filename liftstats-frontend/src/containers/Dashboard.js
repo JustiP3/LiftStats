@@ -5,19 +5,21 @@ import RecentSetsFeed from "../components/RecentSetsFeed"
 import LogSetForm from "../components/LogSetForm"
 import LogSetButton from "../components/LogSetButton"
 
-import { logSet, fetchRecentSets } from "../actions/workoutActions"
+import { logSet } from "../actions/workoutActions"
 
 
 
 class Dashboard extends Component {
 
-    state={showLogSetForm: false, recentWorkouts: [{workoutType:"bench press", weight: 150, reps: 10}]}
+    state={showLogSetForm: false, recentWorkouts: [{workoutType:"", weight: "", reps: ""}]}
 
     componentDidMount() {
         console.log("component did mount")
-       fetchRecentSets().then( resp => {
-           this.setState({...this.state, recentWorkouts: resp.recentWorkouts}) 
-        })      
+        fetch('http://localhost:3000/users/1/workouts').then((response) => {
+          return response.json();
+        }).then((json) => {          
+            this.setState({...this.state, recentWorkouts: json.recentWorkouts})          
+        })     
     }
 
     handleLogSetClick = () => {
@@ -44,7 +46,7 @@ class Dashboard extends Component {
                 <div className="container">   
                     <NavBar />                
                     <LogSetButton handleLogSetClick={this.handleLogSetClick} />
-                    <RecentSetsFeed recentWorkouts={this.state.recentWorkouts} /> 
+                    <RecentSetsFeed propWorks={this.props.recentWorkouts} recentWorkouts={this.state.recentWorkouts} /> 
                 </div>
             )
         }
@@ -52,6 +54,7 @@ class Dashboard extends Component {
     }
 }
 
+const mapStateToProps = (state) => ({recentWorkouts: state.recentWorkouts})
 
      
-export default connect(null, { logSet, fetchRecentSets })(Dashboard)
+export default connect(mapStateToProps, { logSet })(Dashboard)

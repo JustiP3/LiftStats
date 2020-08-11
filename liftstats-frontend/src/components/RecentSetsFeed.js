@@ -17,7 +17,7 @@ export default class RecentSetsFeed extends Component {
     }
 
    render() {
-     
+
         return (
         <div>
             <h1 key="title">Recent Sets:</h1>

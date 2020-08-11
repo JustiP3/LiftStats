@@ -6,10 +6,6 @@ TODO List:
 
 -Frontend - Dashboard- Log Workout Form: user_id is currently hard coded - needs to be currently logged in user 
 
--Clear form after log workout is submitted 
-
--Recent workouts feed should update when a a new workout is logged 
-
 -continue building cool stats functionality 
 
 -implement graphs, reserch good libraries that will integrate well with what I'm doing 
