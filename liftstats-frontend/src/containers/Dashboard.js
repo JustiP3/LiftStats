@@ -5,8 +5,6 @@ import LogSetForm from "../components/LogSetForm"
 import LogSetButton from "../components/LogSetButton"
 
 
-
-
 class Dashboard extends Component {
 
     state={showLogSetForm: false, recentWorkouts: [{workoutType:"", weight: "", reps: ""}]}
@@ -53,8 +51,6 @@ class Dashboard extends Component {
       
     }
 }
-
-
 
      
 export default Dashboard
