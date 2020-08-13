@@ -4,13 +4,13 @@ import Charts from "./Charts"
 
 export default class StatsCard extends Component {
 
-    state={mostWeight: 0, mostReps: 0, mostWeightGivenReps:{reps:0, weight: 0}}
+    state={mostWeight: 0, mostReps: 0, mostWeightGivenReps:{reps:0, weight: 0}, allSets:[{id:"",user_id:"",workout_type:"",weight:"",created_at:null,updated_at:null,personal_record:null}]}
 
     componentDidMount() {
         fetch(`http://localhost:3000/users/1/workouts/${this.props.workout}/records`).then(resp => {
             return resp.json()
         }).then(json => {     
-            return this.setState({...this.state, mostReps: json.most_reps, mostWeight: json.most_weight})
+            return this.setState({...this.state, mostReps: json.most_reps, mostWeight: json.most_weight, allSets: json.all_sets})
         })
     }
 
@@ -30,24 +30,19 @@ export default class StatsCard extends Component {
             }           
             
         })
-    }
-
-    
+    }   
 
 
-    
-
-
-    render() {
+    render() { 
 
         
         return(
             <div key={this.props.workout} className="card">
                 <h2>{this.props.workout}</h2>
-                <p>Most Weight: {this.state.mostWeight.weight} lbs.({this.state.mostWeight.created_at})</p>
-                <p>Most Reps: {this.state.mostReps.reps} lifting {this.state.mostReps.weight} lbs. ({this.state.mostReps.created_at})</p>                
+                <p><b>Personal Record</b> Most Weight: {this.state.mostWeight.weight} lbs.({this.state.mostWeight.created_at})</p>
+                <p><b>Personal Record</b> Most Reps: {this.state.mostReps.reps} lifting {this.state.mostReps.weight} lbs. ({this.state.mostReps.created_at})</p>                
                 <MostWeightGivenReps mostWeightGivenReps={this.state.mostWeightGivenReps} handleSubmitReps={this.handleSubmitReps} />
-                <Charts />
+                <Charts allSets={this.state.allSets}/>
             </div>
             
         )

@@ -1,26 +1,32 @@
-import React, { Component } from 'react'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
+import React, { PureComponent } from 'react';
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip
+} from 'recharts';
 
 
-export default class Charts extends Component {
+
+export default class Charts extends PureComponent {
    
 
     render() {
-        
-        const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page B', uv: 350, pv: 2300, amt: 2400} ];
+       
+        const data = this.props.allSets 
         
         const renderLineChart = (
-            <LineChart width={600} height={300} data={data}>
-            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+            <BarChart width={600} height={300} data={data}>
+            <Bar dataKey="weight" fill="#8884d8" />
             <CartesianGrid stroke="#ccc" />
-            <XAxis dataKey="name" />
+            <Tooltip />
+            <XAxis dataKey="created_at" />
             <YAxis />
-          </LineChart>
+          </BarChart>
         );
 
         return(
             <div>
-               {renderLineChart}
+               {renderLineChart}               
+               <p>{this.props.allSets[0].weight}</p>
+             
             </div>
         )
     }
