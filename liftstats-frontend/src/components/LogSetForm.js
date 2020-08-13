@@ -4,6 +4,20 @@ export default class LogSetForm extends Component {
 
     state={workoutType:"", weight:"", reps: ""}
 
+    logSet = (workout) => {
+        console.log("log set action - about to send a post request via fetch")
+        const configObj = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(workout)
+        }
+        
+        fetch('http://localhost:3000/users/1/workouts', configObj)
+    }
+
     render() {
 
         const handleChange = (event) => {
@@ -13,9 +27,8 @@ export default class LogSetForm extends Component {
         }
       
 
-        const handleSubmit = (event) => {
-            
-            this.props.logSet({user_id: 1, workout: this.state})
+        const handleSubmit = () => {            
+            this.logSet({user_id: 1, workout: this.state})
         }
 
         return(

@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import NavBar from './NavBar'
 import RecentSetsFeed from "../components/RecentSetsFeed"
 import LogSetForm from "../components/LogSetForm"
 import LogSetButton from "../components/LogSetButton"
 
-import { logSet } from "../actions/workoutActions"
 
 
 
@@ -30,6 +28,8 @@ class Dashboard extends Component {
     handleCloseForm = () => {
         this.setState({...this.state, showLogSetForm: false})
     }
+
+    
     
     render() {
 
@@ -37,7 +37,7 @@ class Dashboard extends Component {
             return(
                 <div className="container">    
                     <NavBar />           
-                    <LogSetForm logSet={this.props.logSet} handleCloseForm={this.handleCloseForm} />
+                    <LogSetForm logSet={this.logSet} handleCloseForm={this.handleCloseForm} />
                     <RecentSetsFeed recentWorkouts={this.state.recentWorkouts} /> 
                 </div>
             )
@@ -46,7 +46,7 @@ class Dashboard extends Component {
                 <div className="container">   
                     <NavBar />                
                     <LogSetButton handleLogSetClick={this.handleLogSetClick} />
-                    <RecentSetsFeed propWorks={this.props.recentWorkouts} recentWorkouts={this.state.recentWorkouts} /> 
+                    <RecentSetsFeed recentWorkouts={this.state.recentWorkouts} /> 
                 </div>
             )
         }
@@ -54,7 +54,7 @@ class Dashboard extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({recentWorkouts: state.recentWorkouts})
+
 
      
-export default connect(mapStateToProps, { logSet })(Dashboard)
+export default Dashboard
