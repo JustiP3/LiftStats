@@ -5,13 +5,13 @@ export default class RecentSetsFeed extends Component {
     renderSet = (workout) => {
         
         if (!!workout && workout.personal_record === true) {        
-            return(<div key={workout.id} className="card"> <h3>{workout.workout_type} </h3> 
+            return(<div key={workout.id} className="card"  style={{margin: 50 }}> <h3>{workout.workout_type} </h3> 
             Weight: {workout.weight} Reps: {workout.reps} (New Personal Record!) - {workout.created_at}</div> )
         } else if (!!workout) {
-            return(<div key={workout.id} className="card"> <h3>{workout.workout_type} </h3> 
+            return(<div key={workout.id} className="card"  style={{margin: 50 }}> <h3>{workout.workout_type} </h3> 
             Weight: {workout.weight} Reps: {workout.reps} - {workout.created_at} </div> )
         } else {
-            return(<div key={0} className="card">error</div>)
+            return(<div key={0} className="card"  style={{margin: 50 }}>error</div>)
         }
         
     }
