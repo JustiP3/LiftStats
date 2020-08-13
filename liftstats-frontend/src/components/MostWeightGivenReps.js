@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 export default class MostWeightGivenReps extends Component {
 
     render() {
-    
+        
         return(
             <div>    
                 <button onClick={this.props.handleClose}>Back</button>                      

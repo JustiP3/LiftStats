@@ -30,11 +30,11 @@ export default class StatsCard extends Component {
         fetch(`http://localhost:3000/users/1/workouts/${this.props.workout}/records/${reps}`).then(resp => {
             return resp.json()
         }).then(json => {  
-
-            if (!!json.most_weight_given_reps.reps && json.most_weight_given_reps.reps !==0) {              
-                return this.setState({...this.state, mostWeightGivenReps:{reps:json.most_weight_given_reps[0].reps, weight:json.most_weight_given_reps[0].weight}})
+          
+            if (!!json && !!json.most_weight_given_reps && !!json.most_weight_given_reps[0] ) {              
+                this.setState({...this.state, mostWeightGivenReps:{reps:json.most_weight_given_reps[0].reps, weight:json.most_weight_given_reps[0].weight}})
             } else {
-                return this.setState({...this.state, mostWeightGivenReps:{reps:"0", weight:"0"}})
+                this.setState({...this.state, mostWeightGivenReps:{reps:"0", weight:"0"}})
             }           
             
         })
