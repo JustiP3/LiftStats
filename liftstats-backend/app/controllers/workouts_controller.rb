@@ -57,19 +57,18 @@ class WorkoutsController < ApplicationController
         type = params["type"]
         user = params["id"]
         reps = params["reps"]
+      
 
         most_weight = Workout.highest_weight(type)[0]
         most_reps = Workout.most_reps(type)[0]
+        all_sets = Workout.all_sets(type)
 
-        if !!reps 
-            most_weight_given_reps = Workout.most_weight_given_reps(type, reps)[0]
+        if !!reps
+            most_weight_given_reps = Workout.most_weight_given_reps(type, reps)
             render json: {most_weight_given_reps: most_weight_given_reps}
         else 
-            render json: {most_weight: most_weight, most_reps: most_reps}
-        end 
-
-        
-        
+            render json: {most_weight: most_weight, most_reps: most_reps, all_sets: all_sets}
+        end         
 
         
     end 

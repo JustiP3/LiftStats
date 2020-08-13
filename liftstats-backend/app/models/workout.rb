@@ -13,8 +13,12 @@ class Workout < ApplicationRecord
         Workout.where("user_id = '1' and workout_type = '#{workout_type}'").order("reps DESC").limit(1)
     end
 
-    def self.most_weight_given_reps(workout_type, reps, requested_number_of_records=1)
-        Workout.where("user_id = '1' and workout_type = '#{workout_type}' and reps = '#{reps}'").order("weight DESC").limit(requested_number_of_records)
+    def self.most_weight_given_reps(workout_type, reps)
+        Workout.where("user_id = '1' and workout_type = '#{workout_type}' and reps = '#{reps}'").order("weight DESC").limit(1)
+    end 
+
+    def self.all_sets(workout_type)
+        Workout.where("user_id = '1' and workout_type = '#{workout_type}'")
     end 
 end
 
