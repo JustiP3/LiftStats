@@ -15,6 +15,7 @@ export default class Charts extends PureComponent {
         const renderLineChart = (
             <BarChart width={600} height={300} data={data}>
             <Bar dataKey="weight" fill="#8884d8" />
+            <Bar dataKey="reps" fill="#0084d8" />
             <CartesianGrid stroke="#ccc" />
             <Tooltip />
             <XAxis dataKey="created_at" />
@@ -24,9 +25,8 @@ export default class Charts extends PureComponent {
 
         return(
             <div>
-               {renderLineChart}               
-               <p>{this.props.allSets[0].weight}</p>
-             
+              <button onClick={this.props.handleClose}>Back</button>  
+               {renderLineChart}                        
             </div>
         )
     }

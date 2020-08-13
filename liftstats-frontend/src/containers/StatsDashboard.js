@@ -8,8 +8,8 @@ export default class StatsDashboard extends Component {
     render() {
         return(
         <div className="container">
-            <NavBar />
-            <h1>Stats Dashboard</h1>
+            <NavBar style={{textAlign: 'center'}} />
+            <h1 style={{textAlign: 'center'}}>Stats Dashboard</h1>
             <StatsCardContainer />
         </div>
         )

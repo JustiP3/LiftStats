@@ -24,7 +24,7 @@ export default class StatsCardContainer extends Component {
     
     render() { 
         return(
-        <div className="container">
+        <div className="container" style={{margin: 50 }}>
            {this.renderCards()}
         </div>
         )

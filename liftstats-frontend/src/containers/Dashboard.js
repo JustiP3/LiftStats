@@ -33,7 +33,7 @@ class Dashboard extends Component {
 
         if (this.state.showLogSetForm === true) {
             return(
-                <div className="container">    
+                <div className="container" style={{textAlign: 'center'}}>    
                     <NavBar />           
                     <LogSetForm logSet={this.logSet} handleCloseForm={this.handleCloseForm} />
                     <RecentSetsFeed recentWorkouts={this.state.recentWorkouts} /> 
@@ -41,8 +41,8 @@ class Dashboard extends Component {
             )
         } else {
             return(
-                <div className="container">   
-                    <NavBar />                
+                <div className="container" style={{textAlign: 'center'}}>   
+                    <NavBar />         
                     <LogSetButton handleLogSetClick={this.handleLogSetClick} />
                     <RecentSetsFeed recentWorkouts={this.state.recentWorkouts} /> 
                 </div>

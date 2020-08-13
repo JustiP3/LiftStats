@@ -4,11 +4,10 @@ import React, { Component } from 'react'
 export default class MostWeightGivenReps extends Component {
 
     render() {
-
-  
-
+    
         return(
-            <div>                          
+            <div>    
+                <button onClick={this.props.handleClose}>Back</button>                      
                 <form onSubmit={this.props.handleSubmitReps}>
                 <div className="form-group">
                     <label>Select Number of Reps</label>
@@ -17,6 +16,7 @@ export default class MostWeightGivenReps extends Component {
                 </div>
                    
                 </form>
+                
                 <h4>{this.props.mostWeightGivenReps.weight} lbs. for {this.props.mostWeightGivenReps.reps} reps</h4>
             </div>
             

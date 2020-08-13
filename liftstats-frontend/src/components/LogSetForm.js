@@ -32,24 +32,25 @@ export default class LogSetForm extends Component {
         }
 
         return(
-            <div>
+
+            <div style={{textAlign: 'center'}}>
                 <h1>Log New Set   <button onClick={this.props.handleCloseForm}>X</button></h1>
+
             <form onSubmit={handleSubmit} >
-                <div className="form-group">
+                
                     <label>Workout Type</label>
                     <input type="text" value={this.state.workoutType} onChange={handleChange} name="workoutType" />
-                </div>
-                <div className="form-group">
+               
+            
                     <label>Weight   </label>
                     <input type="text" value={this.state.weight} onChange={handleChange} name="weight" />
-                </div>
-                <div className="form-group">                
+                             
                 <label>Reps   </label>                
                 <input type="text" value={this.state.reps} onChange={handleChange} name="reps" />
-                </div>
-                <div className="form-group">
+            
+               
                 <button type="subit">Submit</button>
-                </div>
+           
             </form>
             </div>
         )
