@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import LoginForm from "../components/LoginForm"
 import SignupForm from "../components/SignupForm"
+import { connect } from 'react-redux'
 
 
-export default class Welcome extends Component {
+class Welcome extends Component {
 
     state={loginForm:false, signupForm:false}
 
@@ -29,7 +30,7 @@ export default class Welcome extends Component {
             return (                
                 <div className="container">           
                    
-                    <LoginForm handleCloseForm={this.handleCloseForm} />       
+                    <LoginForm handleCloseForm={this.handleCloseForm} handleLogin={this.props.login} />       
                 </div>
             );                
         } else if (this.state.signupForm === true) {
@@ -46,7 +47,9 @@ export default class Welcome extends Component {
                     <p>Track your workouts the way you want to track them.</p>
                     <p>Then, get statistics and analysis on how you are progressing in your fitness journey.</p>
                     <button onClick={this.handleLoginClick}>Log In</button>
-                    <button onClick={this.handleSignupClick}>Sign Up</button>        
+                    <button onClick={this.handleSignupClick}>Sign Up</button> 
+                    <button onClick={this.props.login}>Test login</button>      
+                    <h2>displayName = {this.props.displayName}</h2> 
                 </div>
             );
         }
@@ -54,12 +57,18 @@ export default class Welcome extends Component {
   }
 
 
-const mapStateToProps = state => ({userId: state.displayName})
+const mapStateToProps = state => ({displayName: state.displayName})
 
 const mapDispatchToProps = dispatch => ({
-  login: id => dispatch({type: 'LOGIN', id}),
+  login: email => {
+      dispatch({type: 'LOGIN_REQUEST'});
+      //fetch(loca)
+      //() => dispatch({type: 'LOGIN_RE'})
+  },
   logout: () => dispatch({type: 'LOGOUT'})
 })
 
+
+export default connect(mapStateToProps, mapDispatchToProps)(Welcome)
      
   
