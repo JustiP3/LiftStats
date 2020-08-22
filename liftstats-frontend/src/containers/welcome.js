@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import LoginForm from "../components/LoginForm"
 import SignupForm from "../components/SignupForm"
 import { connect } from 'react-redux'
-
+import { Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 class Welcome extends Component {
 
@@ -49,6 +50,7 @@ class Welcome extends Component {
                     <button onClick={this.handleLoginClick}>Log In</button>
                     <button onClick={this.handleSignupClick}>Sign Up</button> 
                     <button onClick={this.props.login}>Test login</button>      
+                    <button onClick={this.props.logout}>Test logout</button>
                     <h2>displayName = {this.props.displayName}</h2> 
                 </div>
             );
@@ -63,7 +65,12 @@ const mapDispatchToProps = dispatch => ({
   login: email => {
       dispatch({type: 'LOGIN_REQUEST'});
       fetch(`http://localhost:3000/users/login/${email}`).then(resp => resp.json()).then(json => {
-          dispatch({type: 'LOGIN', displayName: json.display_name})
+          if (!!json && !!json.display_name) {
+            dispatch({type: 'LOGIN', displayName: json.display_name, userId: json.id})            
+          } else {
+            dispatch({type: "LOGOUT"})
+          }
+          
       })
   },
   logout: () => dispatch({type: 'LOGOUT'})
