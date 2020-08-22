@@ -1,13 +1,13 @@
 class WorkoutsController < ApplicationController
 
     def index 
-        #used for recent sets feed 
+
         workouts = Workout.where("user_id = '1'").order("created_at DESC").limit(5)
         render json: workouts 
     end 
 
     def show 
-        #not currently used ?
+
         workout = Workout.find_by(id: params["id"])
         render json: workout
     end 
@@ -19,28 +19,8 @@ class WorkoutsController < ApplicationController
         workout.weight = params["workout"]["weight"]
         workout.reps = params["workout"]["reps"]
 
-        most_weight = Workout.highest_weight(workout.workout_type)[0]
-        most_reps = Workout.most_reps(workout.workout_type)[0] 
-        most_weight_given_reps = Workout.most_weight_given_reps(workout.workout_type, workout.reps)[0]
-
-        if !most_weight 
-            most_weight = {weight: 0}
-        end 
-        if !most_reps       
-            most_reps = {reps: 0}
-        end 
-        if !most_weight_given_reps
-            most_weight_given_reps = {weight: 0}
-        end 
-
-        if workout.weight > most_weight[:weight]
-            workout.personal_record = true
-        elsif workout.reps > most_reps[:reps]
-            workout.personal_record = true 
-        elsif workout.weight > most_weight_given_reps[:weight]
-            workout.personal_record = true 
-        end      
-        
+       workout = Workout.personal_record(workout)
+       
         if workout.save 
             render json: workout      
         else 
@@ -49,7 +29,7 @@ class WorkoutsController < ApplicationController
     end 
 
     def types
-        # used to generate stats cards each with a unique workout_type
+ 
         render json: {workout_types: Workout.my_workout_types(1)}
     end 
 

@@ -12,7 +12,6 @@ export default class Charts extends PureComponent {
        
         const data = this.props.allSets 
 
-        { /* add option to limit graph to only most recent x workouts. add form to get user input. data = this.props.allSets.slice(x) */}
         
         const renderLineChart = (
             <BarChart width={600} height={300} data={data}>
