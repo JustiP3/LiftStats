@@ -42,7 +42,7 @@ class Workout < ApplicationRecord
             workout.personal_record = true 
         elsif workout.weight > most_weight_given_reps[:weight]
             workout.personal_record = true 
-        end      
+        end 
 
         return workout 
     end 

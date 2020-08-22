@@ -1,13 +1,11 @@
 class WorkoutsController < ApplicationController
 
     def index 
-
         workouts = Workout.where("user_id = '1'").order("created_at DESC").limit(5)
         render json: workouts 
     end 
 
     def show 
-
         workout = Workout.find_by(id: params["id"])
         render json: workout
     end 
