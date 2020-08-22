@@ -54,5 +54,12 @@ export default class Welcome extends Component {
   }
 
 
+const mapStateToProps = state => ({userId: state.displayName})
+
+const mapDispatchToProps = dispatch => ({
+  login: id => dispatch({type: 'LOGIN', id}),
+  logout: () => dispatch({type: 'LOGOUT'})
+})
+
      
   

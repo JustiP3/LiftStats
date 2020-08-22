@@ -3,6 +3,7 @@ import NavBar from './NavBar'
 import RecentSetsFeed from "../components/RecentSetsFeed"
 import LogSetForm from "../components/LogSetForm"
 import LogSetButton from "../components/LogSetButton"
+import { connect } from 'react-redux'
 
 
 class Dashboard extends Component {
@@ -51,5 +52,11 @@ class Dashboard extends Component {
     }
 }
 
+
+const mapStateToProps = state => ({displayName: state.displayName})
+
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch({type: 'LOGOUT'})
+})
      
-export default Dashboard
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
