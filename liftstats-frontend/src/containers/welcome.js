@@ -62,8 +62,9 @@ const mapStateToProps = state => ({displayName: state.displayName})
 const mapDispatchToProps = dispatch => ({
   login: email => {
       dispatch({type: 'LOGIN_REQUEST'});
-      //fetch(loca)
-      //() => dispatch({type: 'LOGIN_RE'})
+      fetch(`http://localhost:3000/users/login/${email}`).then(resp => resp.json()).then(json => {
+          dispatch({type: 'LOGIN', displayName: json.display_name})
+      })
   },
   logout: () => dispatch({type: 'LOGOUT'})
 })

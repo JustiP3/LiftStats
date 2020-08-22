@@ -1,11 +1,11 @@
-export default function manageWorkouts(state = {userId: "", displayName: "Not Logged In"}, action) {
+export default function manageWorkouts(state = {displayName: "Not Logged In"}, action) {
     switch (action.type){
         case "LOGIN_REQUEST":
-            return {...state, displayName: "Logging In"}
+            return {displayName: "Logging In"}
         case "LOGIN":
-            return {userId: action.displayName};            
+            return {displayName: action.displayName};            
         case "LOGOUT":
-            return {userID: ""};
+            return {displayName: ""};
         default:
             return state;
     }
