@@ -6,7 +6,6 @@ class LogSetForm extends Component {
     state={workoutType:"", weight:"", reps: ""}
 
     logSet = (workout) => {
-        console.log("log set action - about to send a post request via fetch")
         const configObj = {
           method: "POST",
           headers: {
@@ -14,9 +13,11 @@ class LogSetForm extends Component {
             "Accept": "application/json"
           },
           body: JSON.stringify(workout)
-        }
-        
-        fetch(`http://localhost:3000/users/${this.props.userId}/workouts`, configObj)
+        }        
+        fetch(`http://localhost:3000/users/${this.props.userId}/workouts`, configObj).then(resp => {
+            this.props.updateRecentWorkouts()
+            this.props.handleCloseForm()            
+        })
     }
 
     render() {
@@ -28,7 +29,8 @@ class LogSetForm extends Component {
         }
       
 
-        const handleSubmit = () => {            
+        const handleSubmit = (event) => {    
+            event.preventDefault()        
             this.logSet({user_id: this.props.userId, workout: this.state})
         }
 

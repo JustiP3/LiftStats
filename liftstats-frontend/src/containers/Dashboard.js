@@ -11,11 +11,15 @@ class Dashboard extends Component {
     state={showLogSetForm: false, recentWorkouts: [{workoutType:"", weight: "", reps: ""}]}
 
     componentDidMount() {
+            this.updateRecentWorkouts()
+    }
+
+    updateRecentWorkouts = () => {
         fetch(`http://localhost:3000/users/${this.props.userId}/workouts`).then((response) => {
           return response.json();
-        }).then((json) => {          
+        }).then((json) => {                    
             this.setState({showLogSetForm: false, recentWorkouts: json})          
-        })     
+        }) 
     }
 
     handleLogSetClick = () => {
@@ -35,7 +39,7 @@ class Dashboard extends Component {
             return(
                 <div className="container" >    
                     <NavBar />           
-                    <LogSetForm logSet={this.logSet} handleCloseForm={this.handleCloseForm} />
+                    <LogSetForm logSet={this.logSet} handleCloseForm={this.handleCloseForm} updateRecentWorkouts={this.updateRecentWorkouts} />
                 </div>
             )
         } else {

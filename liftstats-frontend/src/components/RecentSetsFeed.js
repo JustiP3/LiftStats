@@ -18,14 +18,20 @@ export default class RecentSetsFeed extends Component {
 
    render() {
 
-        return (
-        <div>
-            <h1 key="title">Recent Sets:</h1>
-           
-                { this.props.recentWorkouts.map(work => this.renderSet(work)) }
-              
-          
-        </div>
-        );
+        if (!!this.props.recentWorkouts) {
+            return (
+                <div>
+                    <h1 key="title">Recent Sets:</h1>               
+                        { this.props.recentWorkouts.map(work => this.renderSet(work)) }            
+                </div>
+            )
+        } else {
+            return(
+                <div>
+                    <h1 key="title">Recent Sets:</h1>               
+                        <p>Error Loading Recent Sets</p>          
+                </div>
+            )
+        }          
    }
 }
