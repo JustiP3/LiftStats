@@ -30,10 +30,6 @@ class LoginForm extends Component {
                   <label>Email</label>
                   <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
                   </div>
-                  <div className="form-group">
-                    <label>password</label>
-                    <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-                  </div>
                   <button type='submit'>Log In</button>
               </form>
               <button onClick={this.props.handleCloseForm}>Cancel</button>

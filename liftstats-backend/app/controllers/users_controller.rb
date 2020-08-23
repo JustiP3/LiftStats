@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         if !!user
             render json: user
         else 
-            render json: {display_name: "User Not Found"}
+            render json: {error: "User Not Found"}
         end 
     end 
     

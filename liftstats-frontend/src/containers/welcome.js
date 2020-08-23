@@ -48,9 +48,6 @@ class Welcome extends Component {
                     <p>Then, get statistics and analysis on how you are progressing in your fitness journey.</p>
                     <button onClick={this.handleLoginClick}>Log In</button>
                     <button onClick={this.handleSignupClick}>Sign Up</button> 
-                    <button onClick={this.props.login}>Test login</button>      
-                    <button onClick={this.props.logout}>Test logout</button>
-                    <h2>displayName = {this.props.displayName}</h2> 
                 </div>
             );
         }
@@ -63,7 +60,6 @@ const mapDispatchToProps = dispatch => ({
   login: email => {
       dispatch({type: 'LOGIN_REQUEST'});
       fetch(`http://localhost:3000/users/login/${email}`).then(resp => resp.json()).then(json => {
-          debugger 
           if (!!json && !!json.display_name) {
             dispatch({type: 'LOGIN', displayName: json.display_name, userId: json.id})            
           } else {
