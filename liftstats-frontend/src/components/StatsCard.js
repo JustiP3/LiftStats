@@ -14,7 +14,7 @@ export default class StatsCard extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:3000/users/1/workouts/${this.props.workout}/records`).then(resp => {
+        fetch(`http://localhost:3000/users/${this.props.userId}/workouts/${this.props.workout}/records`).then(resp => {
             return resp.json()
         }).then(json => {     
             return this.setState({...this.state, mostReps: json.most_reps, mostWeight: json.most_weight, allSets: json.all_sets})
@@ -24,10 +24,9 @@ export default class StatsCard extends Component {
     handleSubmitReps = (event) => {
         event.preventDefault() 
 
-        const reps = event.target.reps.value 
-        
+        const reps = event.target.reps.value         
     
-        fetch(`http://localhost:3000/users/1/workouts/${this.props.workout}/records/${reps}`).then(resp => {
+        fetch(`http://localhost:3000/users/${this.props.userId}/workouts/${this.props.workout}/records/${reps}`).then(resp => {
             return resp.json()
         }).then(json => {  
           

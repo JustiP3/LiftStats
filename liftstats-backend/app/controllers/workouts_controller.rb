@@ -48,7 +48,6 @@ class WorkoutsController < ApplicationController
         else 
             render json: {most_weight: most_weight, most_reps: most_reps, all_sets: all_sets}
         end         
-
         
     end 
 

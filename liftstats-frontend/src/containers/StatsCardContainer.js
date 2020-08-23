@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import StatsCard from '../components/StatsCard'
+import { connect } from 'react-redux'
 
-export default class StatsCardContainer extends Component {
+class StatsCardContainer extends Component {
 
     state={workoutTypes: []}
 
     componentDidMount() {
-        fetch('http://localhost:3000/users/1/workouts/types').then(resp => {
+        fetch(`http://localhost:3000/users/${this.props.userId}/workouts/types`).then(resp => {
             return resp.json()
-        }).then(json => {    
-             
+        }).then(json => {                 
             return this.setState({workoutTypes: json.workout_types})
         })
     }
 
     renderCards() {
         if (!!this.state.workoutTypes && this.state.workoutTypes.length > 0) {
-            return this.state.workoutTypes.map(workout => <StatsCard key={workout} workout={workout}/>)
+            return this.state.workoutTypes.map(workout => <StatsCard key={workout} workout={workout} userId={this.props.userId}/>)
         } else {
             return <div>Error in Render Cards</div>
         }
@@ -28,9 +28,10 @@ export default class StatsCardContainer extends Component {
            {this.renderCards()}
         </div>
         )
-    }
- 
+    } 
 }
 
+const mapStateToProps = state => ({userId: state.userId})
 
+export default connect(mapStateToProps)(StatsCardContainer)
      
