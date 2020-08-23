@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class LogSetForm extends Component {
+class LogSetForm extends Component {
 
     state={workoutType:"", weight:"", reps: ""}
 
@@ -15,7 +16,7 @@ export default class LogSetForm extends Component {
           body: JSON.stringify(workout)
         }
         
-        fetch('http://localhost:3000/users/1/workouts', configObj)
+        fetch(`http://localhost:3000/users/${this.props.userId}/workouts`, configObj)
     }
 
     render() {
@@ -28,7 +29,7 @@ export default class LogSetForm extends Component {
       
 
         const handleSubmit = () => {            
-            this.logSet({user_id: 1, workout: this.state})
+            this.logSet({user_id: this.props.userId, workout: this.state})
         }
 
         return(
@@ -56,3 +57,7 @@ export default class LogSetForm extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({userId: state.userId})
+
+export default connect(mapStateToProps)(LogSetForm)

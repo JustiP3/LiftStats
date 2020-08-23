@@ -1,7 +1,8 @@
 class WorkoutsController < ApplicationController
 
     def index 
-        workouts = Workout.where("user_id = '1'").order("created_at DESC").limit(5)
+        user_id = params["user_id"]
+        workouts = Workout.where("user_id = #{user_id}").order("created_at DESC").limit(5)
         render json: workouts 
     end 
 
@@ -26,9 +27,9 @@ class WorkoutsController < ApplicationController
         end  
     end 
 
-    def types
- 
-        render json: {workout_types: Workout.my_workout_types(1)}
+    def types 
+        user_id = params["user_id"]
+        render json: {workout_types: Workout.my_workout_types(user_id)}
     end 
 
     def records

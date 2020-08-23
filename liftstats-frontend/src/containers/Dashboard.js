@@ -11,8 +11,7 @@ class Dashboard extends Component {
     state={showLogSetForm: false, recentWorkouts: [{workoutType:"", weight: "", reps: ""}]}
 
     componentDidMount() {
-        console.log("component did mount")
-        fetch('http://localhost:3000/users/1/workouts').then((response) => {
+        fetch(`http://localhost:3000/users/${this.props.userId}/workouts`).then((response) => {
           return response.json();
         }).then((json) => {          
             this.setState({showLogSetForm: false, recentWorkouts: json})          
@@ -52,11 +51,6 @@ class Dashboard extends Component {
     }
 }
 
+const mapStateToProps = state => ({userId: state.userId})
 
-const mapStateToProps = state => ({displayName: state.displayName})
-
-const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch({type: 'LOGOUT'})
-})
-     
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps)(Dashboard)
