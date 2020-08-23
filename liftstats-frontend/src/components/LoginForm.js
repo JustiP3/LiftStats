@@ -18,9 +18,8 @@ class LoginForm extends Component {
       const handleSubmit = (event) => {
         event.preventDefault() 
         this.props.handleLogin(this.state.email.split(".")[0])        
-        this.setState( {...this.state, loggingIn: true})            
-              
-    }
+        this.setState( {...this.state, loggingIn: true})         
+      }
 
       if (this.state.loggingIn === false) {
         return (

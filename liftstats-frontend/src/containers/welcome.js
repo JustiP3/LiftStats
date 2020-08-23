@@ -57,13 +57,13 @@ class Welcome extends Component {
     }
   }
 
-
 const mapStateToProps = state => ({displayName: state.displayName})
 
 const mapDispatchToProps = dispatch => ({
   login: email => {
       dispatch({type: 'LOGIN_REQUEST'});
       fetch(`http://localhost:3000/users/login/${email}`).then(resp => resp.json()).then(json => {
+          debugger 
           if (!!json && !!json.display_name) {
             dispatch({type: 'LOGIN', displayName: json.display_name, userId: json.id})            
           } else {
