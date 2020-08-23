@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import LoginForm from "../components/LoginForm"
 import SignupForm from "../components/SignupForm"
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
-import { NavLink } from 'react-router-dom'
+
 
 class Welcome extends Component {
 
@@ -31,7 +30,7 @@ class Welcome extends Component {
             return (                
                 <div className="container">           
                    
-                    <LoginForm handleCloseForm={this.handleCloseForm} handleLogin={this.props.login} />       
+                    <LoginForm handleCloseForm={this.handleCloseForm} handleLogin={this.props.login} displayName={this.props.displayName} />       
                 </div>
             );                
         } else if (this.state.signupForm === true) {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-
+import { Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import Welcome from '../containers/Welcome'
 
 class LoginForm extends Component {
 
@@ -15,12 +17,10 @@ class LoginForm extends Component {
 
       const handleSubmit = (event) => {
         event.preventDefault() 
-        this.props.handleLogin(this.state.email.split(".")[0])
-        
-        this.setState( {...this.state, loggingIn: true})              
+        this.props.handleLogin(this.state.email.split(".")[0])        
+        this.setState( {...this.state, loggingIn: true})            
               
     }
-
 
       if (this.state.loggingIn === false) {
         return (
@@ -41,9 +41,17 @@ class LoginForm extends Component {
           </div>
           );
       } else {
-        return (<h1>Logging In ...</h1>)
-      }
-            
+
+        let loggedIn = false 
+        if (this.props.displayName !== "Not Logged In" && this.props.displayName !== "Logging In") {
+          loggedIn = true 
+        }
+
+        return (
+        <Route exact path="/">
+          {loggedIn ? <Redirect to="/dashboard" /> : <Welcome />}
+        </Route>      
+      )}      
     }
 }
 
