@@ -5,7 +5,7 @@ import Welcome from '../containers/Welcome'
 
 class LoginForm extends Component {
 
-    state={email:"", password:"", loggingIn: false}
+    state={email:"", loggingIn: false}
 
     handleChange = (event) => {
       const {value, name} = event.target

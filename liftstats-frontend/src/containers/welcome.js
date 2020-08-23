@@ -35,9 +35,8 @@ class Welcome extends Component {
             );                
         } else if (this.state.signupForm === true) {
             return (                
-                <div className="container">  
-                            
-                    <SignupForm handleCloseForm={this.handleCloseForm} />    
+                <div className="container">                              
+                    <SignupForm handleCloseForm={this.handleCloseForm} handleSignup={this.props.signup} />    
                 </div>
             );
         } else {
@@ -57,6 +56,15 @@ class Welcome extends Component {
 const mapStateToProps = state => ({displayName: state.displayName})
 
 const mapDispatchToProps = dispatch => ({
+  signup: info => {
+    fetch(`http://localhost:3000/users/signup/${info}`).then(resp => resp.json()).then(json => {
+        if (!!json && !!json.display_name) {
+          dispatch({type: 'LOGIN', displayName: json.display_name, userId: json.id})            
+        } else {
+          dispatch({type: "LOGOUT"})
+        }
+    })
+  },
   login: email => {
       dispatch({type: 'LOGIN_REQUEST'});
       fetch(`http://localhost:3000/users/login/${email}`).then(resp => resp.json()).then(json => {
