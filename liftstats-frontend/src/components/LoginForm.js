@@ -11,7 +11,6 @@ class LoginForm extends Component {
       const {value, name} = event.target
       this.setState( {...this.state, [name]: value })
     }
-
    
     render() {
 

@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import Welcome from '../containers/Welcome'
 
 
 class SignupForm extends Component {
@@ -35,8 +38,26 @@ class SignupForm extends Component {
         </div>
         )
       } else {
-          return(<h1>Signing Up! Hang Tight</h1>)
+
+        let loggedIn = false 
+        if (!!this.props.displayName) {
+          loggedIn = true 
+        }
+
+        if (!!this.props.displayName || !!this.props.error) {
+            return (
+                <Route exact path="/">
+                  {loggedIn ? <Redirect to="/dashboard" /> : <Welcome />}
+                </Route> 
+            )
+        } else {
+            return(<h1>Logging In! Hang Tight</h1>)
+        }
+        
+             
       }
+    
+      
    }
 }
 

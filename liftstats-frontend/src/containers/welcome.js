@@ -36,7 +36,7 @@ class Welcome extends Component {
         } else if (this.state.signupForm === true) {
             return (                
                 <div className="container">                              
-                    <SignupForm handleCloseForm={this.handleCloseForm} handleSignup={this.props.signup} />    
+                    <SignupForm handleCloseForm={this.handleCloseForm} handleSignup={this.props.signup} displayName={this.props.displayName} />    
                 </div>
             );
         } else {

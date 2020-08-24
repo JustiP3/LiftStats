@@ -5153,3 +5153,124 @@ Processing by WorkoutsController#records as */*
 Completed 200 OK in 19ms (Views: 13.7ms | ActiveRecord: 1.0ms | Allocations: 3604)
 
 
+Started GET "/users/signup/jp@test-----Tank" for ::1 at 2020-08-23 17:20:03 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"info"=>"jp@test-----Tank"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "display_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "jp@test"], ["display_name", "Tank"], ["created_at", "2020-08-24 00:20:03.455643"], ["updated_at", "2020-08-24 00:20:03.455643"]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 8.3ms | Allocations: 4876)
+
+
+Started GET "/users/login/jp@test" for ::1 at 2020-08-23 17:20:11 -0700
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"jp@test"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jp@test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `login'
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 809)
+
+
+Started GET "/users/undefined/workouts" for ::1 at 2020-08-23 17:20:11 -0700
+Processing by WorkoutsController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mWorkout Load (1.8ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = undefined) ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/workouts_controller.rb:6:in `index'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.8ms | Allocations: 980)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: undefined):
+  
+app/controllers/workouts_controller.rb:6:in `index'
+Started GET "/users//workouts" for ::1 at 2020-08-23 17:21:25 -0700
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"workouts"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 722)
+
+
+Started GET "/users//workouts" for ::1 at 2020-08-23 17:24:39 -0700
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"workouts"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 596)
+
+
+Started GET "/users/signup/cw@tw-----Chicken" for ::1 at 2020-08-23 17:25:05 -0700
+Processing by UsersController#create as */*
+  Parameters: {"info"=>"cw@tw-----Chicken"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "display_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "cw@tw"], ["display_name", "Chicken"], ["created_at", "2020-08-24 00:25:05.336091"], ["updated_at", "2020-08-24 00:25:05.336091"]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 8.0ms | Allocations: 5151)
+
+
+Started GET "/users/signup/jp@test-----Juicy" for ::1 at 2020-08-23 17:26:09 -0700
+Processing by UsersController#create as */*
+  Parameters: {"info"=>"jp@test-----Juicy"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "display_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "jp@test"], ["display_name", "Juicy"], ["created_at", "2020-08-24 00:26:09.113313"], ["updated_at", "2020-08-24 00:26:09.113313"]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+Completed 200 OK in 33ms (Views: 0.5ms | ActiveRecord: 11.1ms | Allocations: 5155)
+
+
+Started GET "/users/login/biglifts@asdf" for ::1 at 2020-08-23 17:29:18 -0700
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"biglifts@asdf"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "biglifts@asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `login'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 620)
+
+
+Started GET "/users/signup/biglifts@asdf-----Hulk" for ::1 at 2020-08-23 17:29:30 -0700
+Processing by UsersController#create as */*
+  Parameters: {"info"=>"biglifts@asdf-----Hulk"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "display_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "biglifts@asdf"], ["display_name", "Hulk"], ["created_at", "2020-08-24 00:29:30.845394"], ["updated_at", "2020-08-24 00:29:30.845394"]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[35m (15.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+Completed 200 OK in 36ms (Views: 0.5ms | ActiveRecord: 18.5ms | Allocations: 4461)
+
+
+Started GET "/users/undefined/workouts" for ::1 at 2020-08-23 17:29:30 -0700
+Processing by WorkoutsController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = undefined) ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/workouts_controller.rb:6:in `index'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms | Allocations: 974)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: undefined):
+  
+app/controllers/workouts_controller.rb:6:in `index'
+Started GET "/users/login/biglifts@asdf" for ::1 at 2020-08-23 17:29:56 -0700
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"biglifts@asdf"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "biglifts@asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `login'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 739)
+
+
+Started GET "/users/7/workouts" for ::1 at 2020-08-23 17:29:56 -0700
+Processing by WorkoutsController#index as */*
+  Parameters: {"user_id"=>"7"}
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = 7) ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/workouts_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.5ms | Allocations: 898)
+
+
