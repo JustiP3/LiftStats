@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class LogSetForm extends Component {
-    render() {
+export default function LogSetForm(props)  {
+    
         return(
-            <button onClick={this.props.handleLogSetClick} style={{margin: 50}}><h1>Log New Set</h1></button>
+            <button onClick={props.handleLogSetClick} style={{margin: 50}}><h1>Log New Set</h1></button>
         )
-    }
+    
 }

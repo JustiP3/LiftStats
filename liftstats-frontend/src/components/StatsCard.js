@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MostWeightGivenReps from './MostWeightGivenReps'
+import Likes from './Likes'
 import Charts from "./Charts"
 
 export default class StatsCard extends Component {
@@ -10,7 +11,8 @@ export default class StatsCard extends Component {
         mostWeightGivenReps:{reps:0, weight: 0}, 
         allSets:[{id:"",user_id:"",workout_type:"",weight:"",created_at:null,updated_at:null,personal_record:null}],
         showCharts: false, 
-        showWeightGivenReps: false
+        showWeightGivenReps: false,
+        likes: 0 
     }
 
     componentDidMount() {
@@ -54,6 +56,11 @@ export default class StatsCard extends Component {
         this.setState({...this.state, showCharts: false, showWeightGivenReps: false})
     }
 
+    handleAddLikes = (event) => {
+        event.preventDefault()
+        this.setState({...this.state, likes: this.state.likes + 1 })
+    }
+
     render() { 
 
         if (this.state.showCharts === true) {
@@ -78,6 +85,7 @@ export default class StatsCard extends Component {
                     <p><b>Personal Record</b> Most Reps: {this.state.mostReps.reps} lifting {this.state.mostReps.weight} lbs. ({this.state.mostReps.created_at})</p>                
                     <button onClick={this.handleClickShowWeightGivenReps}>View Most Weight by Reps</button>
                     <button onClick={this.handleClickShowCharts}>View Progress Chart</button>
+                    <Likes likes={this.state.likes} handleClick={this.handleAddLikes} />
                 </div>   
             )
         }

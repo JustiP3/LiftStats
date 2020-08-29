@@ -7,6 +7,7 @@ class StatsCardContainer extends Component {
     state={workoutTypes: []}
 
     componentDidMount() {
+       
         fetch(`http://localhost:3000/users/${this.props.userId}/workouts/types`).then(resp => {
             return resp.json()
         }).then(json => {                 
