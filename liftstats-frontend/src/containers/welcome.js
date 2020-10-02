@@ -28,25 +28,28 @@ class Welcome extends Component {
       
         if (this.state.loginForm === true) {
             return (                
-                <div className="container">           
-                   
+                <div className="container">                      
                     <LoginForm handleCloseForm={this.handleCloseForm} handleLogin={this.props.login} displayName={this.props.displayName} />       
                 </div>
             );                
         } else if (this.state.signupForm === true) {
             return (                
-                <div className="container">                              
-                    <SignupForm handleCloseForm={this.handleCloseForm} handleSignup={this.props.signup} displayName={this.props.displayName} />    
+                <div className="container">  
+                                         
+                    <SignupForm handleCloseForm={this.handleCloseForm} handleSignup={this.props.signup} displayName={this.props.displayName} /> 
+                      
                 </div>
             );
         } else {
-            return (                
-                <div className="container"> 
-                             
-                    <p>Track your workouts the way you want to track them.</p>
-                    <p>Then, get statistics and analysis on how you are progressing in your fitness journey.</p>
-                    <button onClick={this.handleLoginClick}>Log In</button>
-                    <button onClick={this.handleSignupClick}>Sign Up</button> 
+            return (       
+                <div className="container">         
+                    <div className="card align-items-center">                              
+                        <h1>Log your weight lifting activity.</h1>
+                        <br />
+                        <h1>Track your Progress.</h1>
+                        <button onClick={this.handleLoginClick}>Log In</button>
+                        <button onClick={this.handleSignupClick}>Sign Up</button> 
+                    </div>
                 </div>
             );
         }

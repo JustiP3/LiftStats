@@ -26,10 +26,11 @@ class SignupForm extends Component {
 
       if (this.state.loggingIn === false) {
         return (
-        <div>
+        <div className="align-items-center">
+          <h1>Sign Up</h1>
             <form onSubmit={handleSubmit}>
                 <label>Email</label>
-                <input type="text" name="email" value={this.state.email}  onChange={this.handleChange} />
+                <input type="text" name="email" value={this.state.email}  onChange={this.handleChange} /><br />
                 <label>Display Name</label>
                 <input type="text" name="displayName" value={this.state.displayName}  onChange={this.handleChange} />
                 <button type="submit">Create Account</button>

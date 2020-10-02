@@ -22,13 +22,13 @@ class LoginForm extends Component {
 
       if (this.state.loggingIn === false) {
         return (
-          <div>
+          <div className="card align-items-center">   
               <h1>Log In</h1>
               <form onSubmit={handleSubmit}>
-                <div className="form-group">
+                
                   <label>Email</label>
                   <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
-                  </div>
+                  
                   <button type='submit'>Log In</button>
               </form>
               <button onClick={this.props.handleCloseForm}>Cancel</button>
