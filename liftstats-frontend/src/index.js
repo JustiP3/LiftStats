@@ -15,6 +15,8 @@ import './index.css';
 let store = createStore(manageWorkouts, applyMiddleware(thunk))
 
 
+
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
