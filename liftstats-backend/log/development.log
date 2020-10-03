@@ -9806,3 +9806,12 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 287ms (Views: 201.3ms | ActiveRecord: 0.0ms | Allocations: 1590)
 
 
+Started GET "/" for ::1 at 2020-10-02 17:27:23 -0700
+  [1m[35m (30.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/justin/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/justin/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 94.3ms | Allocations: 315)
+Completed 200 OK in 376ms (Views: 258.0ms | ActiveRecord: 0.0ms | Allocations: 1602)
+
+
