@@ -1,0 +1,30 @@
+/liftstats-frontend/node_modules
+/liftstats-frontend/.pnp
+/liftstats-frontend/.pnp.js
+
+# testing
+/liftstats-frontend/coverage
+
+# production
+/liftstats-frontend/build
+
+# misc
+/liftstats-frontend/.DS_Store
+/liftstats-frontend/.env.local
+/liftstats-frontend/.env.development.local
+/liftstats-frontend/.env.test.local
+/liftstats-frontend/.env.production.local
+
+/liftstats-frontend/npm-debug.log*
+/liftstats-frontend/yarn-debug.log*
+/liftstats-frontend/yarn-error.log*
+
+/liftstats-frontend/cert.pem
+/liftstats-frontend/key.pem 
+/liftstats-frontend/ca.cert
+/liftstats-frontend/ca.key 
+/liftstats-frontend/cert.crt 
+/liftstats-frontend/cert.key 
+/liftstats-frontend/certtt.crt 
+/liftstats-frontend/certtt.key 
+
