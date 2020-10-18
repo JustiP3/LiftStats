@@ -19,12 +19,3 @@
 /liftstats-frontend/yarn-debug.log*
 /liftstats-frontend/yarn-error.log*
 
-/liftstats-frontend/cert.pem
-/liftstats-frontend/key.pem 
-/liftstats-frontend/ca.cert
-/liftstats-frontend/ca.key 
-/liftstats-frontend/cert.crt 
-/liftstats-frontend/cert.key 
-/liftstats-frontend/certtt.crt 
-/liftstats-frontend/certtt.key 
-
