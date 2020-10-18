@@ -14,7 +14,7 @@ class LogSetForm extends Component {
           },
           body: JSON.stringify(workout)
         }        
-        fetch(`http://localhost:3000/users/${this.props.userId}/workouts`, configObj).then(resp => {
+        fetch(`http://localhost:3001/users/${this.props.userId}/workouts`, configObj).then(resp => {
             this.props.updateRecentWorkouts()
             this.props.handleCloseForm()            
         })

@@ -8,7 +8,7 @@ class StatsCardContainer extends Component {
 
     componentDidMount() {
        
-        fetch(`http://localhost:3000/users/${this.props.userId}/workouts/types`).then(resp => {
+        fetch(`http://localhost:3001/users/${this.props.userId}/workouts/types`).then(resp => {
             return resp.json()
         }).then(json => {                 
             return this.setState({workoutTypes: json.workout_types})

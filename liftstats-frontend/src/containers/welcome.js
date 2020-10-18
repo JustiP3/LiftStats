@@ -60,7 +60,7 @@ const mapStateToProps = state => ({displayName: state.displayName})
 
 const mapDispatchToProps = dispatch => ({
   signup: info => {
-    fetch(`http://localhost:3000/users/signup/${info}`).then(resp => resp.json()).then(json => {
+    fetch(`http://localhost:3001/users/signup/${info}`).then(resp => resp.json()).then(json => {
         if (!!json && !!json.display_name) {
           dispatch({type: 'LOGIN', displayName: json.display_name, userId: json.id})            
         } else {
@@ -70,7 +70,7 @@ const mapDispatchToProps = dispatch => ({
   },
   login: email => {
       dispatch({type: 'LOGIN_REQUEST'});
-      fetch(`http://localhost:3000/users/login/${email}`).then(resp => resp.json()).then(json => {
+      fetch(`http://localhost:3001/users/login/${email}`).then(resp => resp.json()).then(json => {
           if (!!json && !!json.display_name) {
             dispatch({type: 'LOGIN', displayName: json.display_name, userId: json.id})            
           } else {

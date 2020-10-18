@@ -15,7 +15,7 @@ class Dashboard extends Component {
     }
 
     updateRecentWorkouts = () => {
-        fetch(`http://localhost:3000/users/${this.props.userId}/workouts`).then((response) => {
+        fetch(`http://localhost:3001/users/${this.props.userId}/workouts`).then((response) => {
           return response.json();
         }).then((json) => {                    
             this.setState({showLogSetForm: false, recentWorkouts: json})          
