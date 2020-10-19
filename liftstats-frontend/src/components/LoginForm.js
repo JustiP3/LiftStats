@@ -91,7 +91,7 @@ class LoginForm extends Component {
       }.bind(this));
     }
     
-    handleClick = function() {
+    handleClick = function() {      
       window.FB.login(this.checkLoginState());
     };
    
@@ -108,6 +108,8 @@ class LoginForm extends Component {
         return (
           <div className="card align-items-center">   
               <h1>Log In</h1>
+              <h2 id="status">something</h2>
+              <h2><button onClick={this.handleClick}>Login</button></h2>
               <form onSubmit={handleSubmit}>
                 
                   <label>Email</label>
