@@ -10175,3 +10175,84 @@ Processing by WorkoutsController#records as */*
 Completed 200 OK in 33ms (Views: 12.0ms | ActiveRecord: 2.2ms | Allocations: 2474)
 
 
+Started GET "/users/signup/ddd@d-----ddd" for ::1 at 2020-10-18 16:39:37 -0700
+Processing by UsersController#create as */*
+  Parameters: {"info"=>"ddd@d-----ddd"}
+  [1m[35m (0.9ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+Started GET "/users/undefined/workouts" for ::1 at 2020-10-18 16:39:37 -0700
+  [1m[36mUser Create (21.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "display_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "ddd@d"], ["display_name", "ddd"], ["created_at", "2020-10-18 23:39:37.964427"], ["updated_at", "2020-10-18 23:39:37.964427"]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[35m (26.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+Completed 200 OK in 82ms (Views: 0.3ms | ActiveRecord: 49.3ms | Allocations: 6151)
+
+
+Processing by WorkoutsController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mWorkout Load (59.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = undefined) ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/workouts_controller.rb:6:in `index'
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 59.5ms | Allocations: 1425)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: undefined):
+  
+app/controllers/workouts_controller.rb:6:in `index'
+Started POST "/users/9/workouts" for ::1 at 2020-10-18 16:39:49 -0700
+Processing by WorkoutsController#create as JSON
+  Parameters: {"user_id"=>"9", "workout"=>{"workoutType"=>"bicep curl", "weight"=>"15", "reps"=>"10"}}
+  [1m[36mWorkout Load (0.5ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '9' and workout_type = 'bicep curl') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/workout.rb:26:in `personal_record'
+  [1m[36mWorkout Load (0.3ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '9' and workout_type = 'bicep curl') ORDER BY reps DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/workout.rb:27:in `personal_record'
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '9' and workout_type = 'bicep curl' and reps = '10') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/workout.rb:28:in `personal_record'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/workouts_controller.rb:23:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:23:in `create'
+  [1m[36mWorkout Create (19.1ms)[0m  [1m[32mINSERT INTO "workouts" ("user_id", "workout_type", "weight", "reps", "created_at", "updated_at", "personal_record") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 9], ["workout_type", "bicep curl"], ["weight", 15], ["reps", 10], ["created_at", "2020-10-18 23:39:49.361716"], ["updated_at", "2020-10-18 23:39:49.361716"], ["personal_record", 1]]
+  ↳ app/controllers/workouts_controller.rb:23:in `create'
+  [1m[35m (36.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/workouts_controller.rb:23:in `create'
+Completed 200 OK in 74ms (Views: 0.3ms | ActiveRecord: 56.7ms | Allocations: 7979)
+
+
+Started GET "/users/9/workouts" for ::1 at 2020-10-18 16:39:49 -0700
+Processing by WorkoutsController#index as */*
+  Parameters: {"user_id"=>"9"}
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = 9) ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/workouts_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1051)
+
+
+Started GET "/users/9/workouts/types" for ::1 at 2020-10-18 16:39:52 -0700
+Processing by WorkoutsController#types as */*
+  Parameters: {"id"=>"9"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT DISTINCT "workouts"."workout_type" FROM "workouts" WHERE (user_id = '9') ORDER BY workout_type[0m
+  ↳ app/models/workout.rb:9:in `my_workout_types'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 688)
+
+
+Started GET "/users/9/workouts/bicep%20curl/records" for ::1 at 2020-10-18 16:39:52 -0700
+Processing by WorkoutsController#records as */*
+  Parameters: {"id"=>"9", "type"=>"bicep curl"}
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '9' and workout_type = 'bicep curl') ORDER BY weight DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:41:in `records'
+  [1m[36mWorkout Load (0.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '9' and workout_type = 'bicep curl') ORDER BY reps DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/workouts_controller.rb:42:in `records'
+  [1m[36mWorkout Load (0.3ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = '9' and workout_type = 'bicep curl')[0m
+  ↳ app/controllers/workouts_controller.rb:49:in `records'
+Completed 200 OK in 8ms (Views: 2.4ms | ActiveRecord: 1.1ms | Allocations: 2685)
+
+
+Started GET "/users/9/workouts" for ::1 at 2020-10-18 16:39:55 -0700
+Processing by WorkoutsController#index as */*
+  Parameters: {"user_id"=>"9"}
+  [1m[36mWorkout Load (2.4ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts" WHERE (user_id = 9) ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/workouts_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 2.4ms | Allocations: 1054)
+
+
