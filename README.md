@@ -6,7 +6,7 @@ A simple app to record weight-lifting activity and track progess.
 
 This web app is a prototype for my dream mobile app
 
-[![](http://img.youtube.com/vi/CXIAh0ismSE/0.jpg)](http://www.youtube.com/watch?v=CXIAh0ismSE "")
+
 
 
 Ideas for future improvement:
