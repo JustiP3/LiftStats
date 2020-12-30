@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import LoginForm from "../components/LoginForm"
 import SignupForm from "../components/SignupForm"
 import { connect } from 'react-redux'
+import style from './containers.css'
 
 
 class Welcome extends Component {
@@ -28,7 +29,7 @@ class Welcome extends Component {
       
         if (this.state.loginForm === true) {
             return (                
-                <div className="container">           
+                <div className="container" style={style.container}>           
                    
                     <LoginForm handleCloseForm={this.handleCloseForm} handleLogin={this.props.login} displayName={this.props.displayName} />       
                 </div>
