@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import Welcome from '../containers/Welcome'
+import style from './components.css'
 
 class LoginForm extends Component {
 
@@ -22,7 +23,7 @@ class LoginForm extends Component {
 
       if (this.state.loggingIn === false) {
         return (
-          <div>
+          <div style={style.component}>
               <h1>Log In</h1>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
